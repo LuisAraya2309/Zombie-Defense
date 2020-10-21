@@ -1,9 +1,7 @@
 
-package com.mycompany.zombiedefense;
+package zombiedefense;
 
-public class Zombie {
-
-    
+public class Personaje {
 
     //Atributos
     protected int nivel;
@@ -12,7 +10,9 @@ public class Zombie {
     protected int defensa;
     protected int rangoDeVision;
     protected int exp;
-    public Zombie(int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp) {
+    
+    
+    public Personaje(int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp) {
         this.nivel = nivel;
         this.salud = salud;
         this.ataque = ataque;
@@ -20,12 +20,15 @@ public class Zombie {
         this.rangoDeVision = rangoDeVision;
         this.exp = exp;
     }
+   
     
+    
+    //Sets y Gets
+   
     public int getNivel() {
         return nivel;
     }
 
-    
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
@@ -45,11 +48,12 @@ public class Zombie {
         return ataque;
     }
 
+    
     public void setAtaque(int ataque) {
         this.ataque = ataque;
     }
 
-  
+ 
     public int getDefensa() {
         return defensa;
     }
@@ -59,12 +63,12 @@ public class Zombie {
         this.defensa = defensa;
     }
 
-   
+  
     public int getRangoDeVision() {
         return rangoDeVision;
     }
 
-   
+    
     public void setRangoDeVision(int rangoDeVision) {
         this.rangoDeVision = rangoDeVision;
     }
@@ -74,11 +78,9 @@ public class Zombie {
         return exp;
     }
 
-    
     public void setExp(int exp) {
         this.exp = exp;
     }
-    
     
     
 }

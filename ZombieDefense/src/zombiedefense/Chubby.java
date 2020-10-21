@@ -1,5 +1,5 @@
 
-package com.mycompany.zombiedefense;
+package zombiedefense;
 
 
 public class Chubby extends Zombie{
