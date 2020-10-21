@@ -49,7 +49,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="130" width="170" height="240"/>
+          <AbsoluteConstraints x="40" y="10" width="170" height="240"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -59,7 +59,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="410" width="170" height="170"/>
+          <AbsoluteConstraints x="40" y="260" width="170" height="170"/>
         </Constraint>
       </Constraints>
 
@@ -78,7 +78,7 @@
               <Color blue="66" green="cc" red="ff" type="rgb"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="The Revenant es un &#xa;heroe blindado"/>
+            <Property name="text" type="java.lang.String" value="The Revenant es un &#xa;heroe blindado que &#xa;tiene una cantidad &#xa;de escudo adicional &#xa;a la vidaactual.&#xa;"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextArea1.setEditable(false);"/>
@@ -94,7 +94,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="230" y="130" width="170" height="240"/>
+          <AbsoluteConstraints x="230" y="10" width="170" height="240"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -104,7 +104,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="230" y="410" width="170" height="170"/>
+          <AbsoluteConstraints x="230" y="260" width="170" height="170"/>
         </Constraint>
       </Constraints>
 
@@ -123,7 +123,7 @@
               <Color blue="66" green="cc" red="ff" type="rgb"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Scout es un sigiloso&#xa;explorador"/>
+            <Property name="text" type="java.lang.String" value="Scout es un sigiloso&#xa;explorador que &#xa;posee un arma a &#xa;largo alcance y un &#xa;rango de vision&#xa;mayor a los demas."/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextArea2.setEditable(false);"/>
@@ -139,7 +139,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="420" y="130" width="170" height="240"/>
+          <AbsoluteConstraints x="420" y="10" width="170" height="240"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -149,7 +149,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="420" y="410" width="170" height="170"/>
+          <AbsoluteConstraints x="420" y="260" width="170" height="170"/>
         </Constraint>
       </Constraints>
 
@@ -168,7 +168,7 @@
               <Color blue="66" green="cc" red="ff" type="rgb"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Momon"/>
+            <Property name="text" type="java.lang.String" value="Dheylo es un asesino &#xa;genuino que tiene &#xa;un da&#xf1;o muy potente&#xa;que acaba de manera&#xa;f&#xe1;cil con los zombies.&#xa;"/>
           </Properties>
         </Component>
       </SubComponents>
