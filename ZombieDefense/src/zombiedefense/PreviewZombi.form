@@ -102,7 +102,7 @@
               <Color blue="0" green="0" red="33" type="rgb"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Calvo"/>
+            <Property name="text" type="java.lang.String" value="Chubby es un zombie muy&#xa;robusto y lleno de hambre.&#xa;Tiene una salud muy alta y&#xa;mientras la partida pasa,&#xa;se vuelve m&#xe1;s robusto.&#xa;"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextArea1.setEditable(false);"/>
@@ -135,7 +135,7 @@
               <Color blue="0" green="0" red="33" type="rgb"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Calvo"/>
+            <Property name="text" type="java.lang.String" value="Lakelurk es un zombie &#xa;que se parece a un fisico-&#xa;culturista. No tiene tanta&#xa;salud debido a que los&#xa;esteroides lo da&#xf1;aron, &#xa;pero su da&#xf1;o es brutal."/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextArea2.setEditable(false);"/>

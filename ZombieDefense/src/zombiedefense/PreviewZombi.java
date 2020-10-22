@@ -66,7 +66,7 @@ public class PreviewZombi extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(51, 0, 0));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Calvo");
+        jTextArea1.setText("Chubby es un zombie muy\nrobusto y lleno de hambre.\nTiene una salud muy alta y\nmientras la partida pasa,\nse vuelve más robusto.\n");
         jScrollPane1.setViewportView(jTextArea1);
         jTextArea1.setEditable(false);
 
@@ -77,7 +77,7 @@ public class PreviewZombi extends javax.swing.JFrame {
         jTextArea2.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(51, 0, 0));
         jTextArea2.setRows(5);
-        jTextArea2.setText("Calvo");
+        jTextArea2.setText("Lakelurk es un zombie \nque se parece a un fisico-\nculturista. No tiene tanta\nsalud debido a que los\nesteroides lo dañaron, \npero su daño es brutal.");
         jScrollPane2.setViewportView(jTextArea2);
         jTextArea2.setEditable(false);
 
@@ -112,37 +112,7 @@ public class PreviewZombi extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PreviewZombi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PreviewZombi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PreviewZombi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PreviewZombi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PreviewZombi().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelFondo;
