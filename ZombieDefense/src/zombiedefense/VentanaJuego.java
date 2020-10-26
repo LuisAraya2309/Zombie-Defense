@@ -1,14 +1,21 @@
 
 package zombiedefense;
+import java.awt.GridLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class VentanaJuego extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VentanaJuego
-     */
+    public static JLabel etiqueta1,etiqueta2,etiqueta3,etiqueta4,etiqueta5,etiqueta6,etiqueta7,etiqueta8,etiqueta9,etiqueta10,etiqueta11,etiqueta12,
+            etiqueta13,etiqueta14,etiqueta15,etiqueta16,etiqueta17,etiqueta18,etiqueta19,etiqueta20,etiqueta21,etiqueta22,etiqueta23,etiqueta24,
+            etiqueta25,etiqueta26,etiqueta27,etiqueta28,etiqueta29,etiqueta30;
+    public static JLabel[] arregloEtiquetas = new JLabel[30];
+    public static JLabel[][] matrizEtiquetas = new JLabel[6][5];
+    public static String[][] matrizOrigin = new String[6][5];
+        
     public VentanaJuego() {
         initComponents();
-        InicializarTablero();
+        this.setLocationRelativeTo(null);
+        IniciarTablero();
     }
 
     /**
@@ -20,110 +27,107 @@ public class VentanaJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("JUEGO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 50, 30));
-
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
-
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
-
-        jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
-
-        jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, -1));
-
-        jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
-
-        jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
-
-        jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
-
-        jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 945, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 847, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void ActualizarTablero(){
-        
-        for(int x = 0;x<3;x++){
-            for(int y = 0;y<3;y++){
-                String actual = tablero[x][y];
-                switch (actual) {
-                    case "X":
-                        tablero[x][y] = "Equis";
-                        break;
-                    case "J":
-                        tablero[x][y] = "Jota";
-                        break;
-                    case "B":
-                        tablero[x][y] = "Bueno";
-                        break;
-                    default:
-                        tablero[x][y] = "Locaaaa";
-                        break;
-                }
-            }
-        }
-        
-        for(int x = 0; x<3; x++){
-            System.out.println("Fila: " + x);
-            for(int y = 0;y<3;y++){
-                System.out.println("Columna: " + y);
-                System.out.println("Actual: "+tablero[x][y]);
-            }
-        }
-    }
-    public static void InicializarTablero(){
-        for(int x = 0;x<3;x++){
-                for(int y = 0;y<3;y++){
-                    tablero[x][y] = "X";
-                }
-            }
-        tablero[1][1] = "J";
-        tablero[2][2] = "B";
-        ActualizarTablero();
-        
-    }
-    public static String[][] tablero = new String[3][3];
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    // End of variables declaration//GEN-END:variables
+    //Metodos
+    public void ActualizarMatriz(){
+        for(int i = 0; i<6;i++){
+            for(int j = 0;j<5;j++){
+                String actual = matrizOrigin[i][j];
+                
+                switch(actual){
+                    /*SIMBOLOGIA
+                        -Tablero-
+                        X= CASILLA VACIA
+                        Z= SPAWNPOINT
 
+                        -Zombies-
+                        G = GHOUL
+                        L = LAKELURK
+                        C = CHUBBY
+
+                        -Personajes-
+                        A = ASESINO
+                        J = blindado
+                        E = Explorador
+
+                        -Base
+                        B = BASE
+        
+                      */
+                    case "b":
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                    case "z":
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                    case "g":
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                    case "l":
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                    case "c":
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                    case "a":
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                    case "j":
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                    case "e":
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                    default:
+                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                }
+            }
+        }
+    } 
+    
+    
+    public void IniciarTablero(){
+        setLayout(new GridLayout(6,5));
+        for(int i = 0; i<arregloEtiquetas.length;i++){
+            arregloEtiquetas[i] = new JLabel("Etiqueta"+(i+1));
+            if((i%2)==0){
+                arregloEtiquetas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Negro.png")));
+                add(arregloEtiquetas[i]);
+            }
+            else{
+                arregloEtiquetas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Blanco.png")));
+                add(arregloEtiquetas[i]);
+            }
+            
+        }
+        int e = 0;
+        while(e<30){
+            for(int x = 0;x<6;x++){
+                for(int y = 0;y<5;y++){
+                    matrizEtiquetas[x][y] = arregloEtiquetas[e];
+                    e++;
+                }
+            }
+        }
+        for(int i = 0; i<6;i++){
+            for(int j = 0;j<5;j++){
+                matrizOrigin[i][j] = "x";
+            }
+        }
+        
+        
+        
+    }
+    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
 }

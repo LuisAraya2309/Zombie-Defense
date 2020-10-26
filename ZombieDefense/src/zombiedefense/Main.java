@@ -12,24 +12,6 @@ public class Main {
             }
         });
         
-        /*SIMBOLOGIA
-        -Tablero-
-        X= CASILLA VACIA
-        Z= SPAWNPOINT
         
-        -Zombies-
-        G = GHOUL
-        L = LAKELURK
-        C = CHUBBY
-        
-        -Personajes-
-        A = ASESINO
-        J = blindado
-        E = Explorador
-        
-        -Base
-        B = BASE
-        
-        */
     }
 }
