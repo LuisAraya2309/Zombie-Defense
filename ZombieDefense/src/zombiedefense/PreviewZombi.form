@@ -56,7 +56,7 @@
     <Component class="javax.swing.JLabel" name="jLabelZombi2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/de3917a38484181e442832746be7eb9c.png"/>
+          <Image iconType="3" name="/imagenes/ZombiPreview.jpg"/>
         </Property>
       </Properties>
       <Constraints>
@@ -168,7 +168,7 @@
               <Color blue="0" green="0" red="33" type="rgb"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Calvo"/>
+            <Property name="text" type="java.lang.String" value="El ghoul es un zombie &#xa;que tiene un equilibrio&#xa; entre salud y da&#xf1;o. &#xa;Parecen livianos y d&#xe9;biles,&#xa; pero te comer&#xe1;n el &#xa;cerebro si te conf&#xed;as."/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextArea3.setEditable(false);"/>

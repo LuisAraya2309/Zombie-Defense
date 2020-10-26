@@ -11,9 +11,6 @@ package zombiedefense;
  */
 public class PreviewZombi extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PreviewZombi
-     */
     public PreviewZombi() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -55,7 +52,7 @@ public class PreviewZombi extends javax.swing.JFrame {
         jLabelZombi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/latest.png"))); // NOI18N
         getContentPane().add(jLabelZombi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 250));
 
-        jLabelZombi2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/de3917a38484181e442832746be7eb9c.png"))); // NOI18N
+        jLabelZombi2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZombiPreview.jpg"))); // NOI18N
         getContentPane().add(jLabelZombi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, 250));
 
         jLabelZombi3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Zombi3.jpg"))); // NOI18N
@@ -88,7 +85,7 @@ public class PreviewZombi extends javax.swing.JFrame {
         jTextArea3.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
         jTextArea3.setForeground(new java.awt.Color(51, 0, 0));
         jTextArea3.setRows(5);
-        jTextArea3.setText("Calvo");
+        jTextArea3.setText("El ghoul es un zombie \nque tiene un equilibrio\n entre salud y daño. \nParecen livianos y débiles,\n pero te comerán el \ncerebro si te confías.");
         jScrollPane3.setViewportView(jTextArea3);
         jTextArea3.setEditable(false);
 

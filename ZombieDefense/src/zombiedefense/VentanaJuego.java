@@ -97,9 +97,9 @@ public class VentanaJuego extends javax.swing.JFrame {
     public void IniciarTablero(){
         setLayout(new GridLayout(6,5));
         for(int i = 0; i<arregloEtiquetas.length;i++){
-            arregloEtiquetas[i] = new JLabel("Etiqueta"+(i+1));
+            arregloEtiquetas[i] = new JLabel();
             if((i%2)==0){
-                arregloEtiquetas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Negro.png")));
+                arregloEtiquetas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZombiM.jpg")));
                 add(arregloEtiquetas[i]);
             }
             else{
