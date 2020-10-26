@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package zombiedefense;
 
-/**
- *
- * @author DELL
- */
 public class VentanaJuego extends javax.swing.JFrame {
 
     /**
@@ -16,6 +8,7 @@ public class VentanaJuego extends javax.swing.JFrame {
      */
     public VentanaJuego() {
         initComponents();
+        InicializarTablero();
     }
 
     /**
@@ -28,13 +21,49 @@ public class VentanaJuego extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("JUEGO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 50, 30));
+
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
+
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
+
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, -1));
+
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+
+        jLabel8.setText("jLabel8");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
+
+        jLabel10.setText("jLabel10");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -42,9 +71,59 @@ public class VentanaJuego extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-  
-
+    public static void ActualizarTablero(){
+        
+        for(int x = 0;x<3;x++){
+            for(int y = 0;y<3;y++){
+                String actual = tablero[x][y];
+                switch (actual) {
+                    case "X":
+                        tablero[x][y] = "Equis";
+                        break;
+                    case "J":
+                        tablero[x][y] = "Jota";
+                        break;
+                    case "B":
+                        tablero[x][y] = "Bueno";
+                        break;
+                    default:
+                        tablero[x][y] = "Locaaaa";
+                        break;
+                }
+            }
+        }
+        
+        for(int x = 0; x<3; x++){
+            System.out.println("Fila: " + x);
+            for(int y = 0;y<3;y++){
+                System.out.println("Columna: " + y);
+                System.out.println("Actual: "+tablero[x][y]);
+            }
+        }
+    }
+    public static void InicializarTablero(){
+        for(int x = 0;x<3;x++){
+                for(int y = 0;y<3;y++){
+                    tablero[x][y] = "X";
+                }
+            }
+        tablero[1][1] = "J";
+        tablero[2][2] = "B";
+        ActualizarTablero();
+        
+    }
+    public static String[][] tablero = new String[3][3];
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
+
 }
