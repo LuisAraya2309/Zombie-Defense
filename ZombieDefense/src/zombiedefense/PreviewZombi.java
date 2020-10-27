@@ -41,7 +41,7 @@ public class PreviewZombi extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RZZ.png"))); // NOI18N
+        jLabelRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonRegresarZ.png"))); // NOI18N
         jLabelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelRegresarMouseClicked(evt);
@@ -49,13 +49,13 @@ public class PreviewZombi extends javax.swing.JFrame {
         });
         getContentPane().add(jLabelRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 0, 250, 80));
 
-        jLabelZombi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/latest.png"))); // NOI18N
+        jLabelZombi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ChubbyPreview.png"))); // NOI18N
         getContentPane().add(jLabelZombi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 250));
 
-        jLabelZombi2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZombiPreview.jpg"))); // NOI18N
+        jLabelZombi2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LakelurkPreview.jpg"))); // NOI18N
         getContentPane().add(jLabelZombi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, 250));
 
-        jLabelZombi3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Zombi3.jpg"))); // NOI18N
+        jLabelZombi3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GhoulPreview.jpg"))); // NOI18N
         getContentPane().add(jLabelZombi3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 180, 250));
 
         jTextArea1.setBackground(new java.awt.Color(51, 51, 51));
@@ -94,7 +94,7 @@ public class PreviewZombi extends javax.swing.JFrame {
         jLabelFondo.setBackground(new java.awt.Color(51, 51, 51));
         jLabelFondo.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
         jLabelFondo.setForeground(new java.awt.Color(51, 0, 0));
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/121634-aleni.jpg"))); // NOI18N
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoPreviewZ.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 600));
 
         pack();
