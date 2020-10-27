@@ -2,7 +2,7 @@
 package zombiedefense;
 
 
-public class Ghoul extends Zombie{
+public class Ghoul extends Personaje{
 
     //Atributos
     private int pudricion;

@@ -2,10 +2,10 @@
 package zombiedefense;
 
 
-public class Chubby extends Zombie{
+public class Chubby extends Personaje{
 
     //Atributos
-    private int mutacion;
+    public int mutacion;
     
     public Chubby(int mutacion, int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp) {
         super(nivel, salud, ataque, defensa, rangoDeVision, exp);

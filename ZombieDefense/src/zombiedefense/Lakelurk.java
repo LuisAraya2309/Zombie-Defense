@@ -2,7 +2,7 @@
 package zombiedefense;
 
 
-public class Lakelurk extends Zombie{
+public class Lakelurk extends Personaje{
 
     //Atributos
     private int reencarnacion;

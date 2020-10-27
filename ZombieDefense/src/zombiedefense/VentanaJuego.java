@@ -5,12 +5,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class VentanaJuego extends javax.swing.JFrame {
+    //Etiquetas del tablero
     public static JLabel etiqueta1,etiqueta2,etiqueta3,etiqueta4,etiqueta5,etiqueta6,etiqueta7,etiqueta8,etiqueta9,etiqueta10,etiqueta11,etiqueta12,
             etiqueta13,etiqueta14,etiqueta15,etiqueta16,etiqueta17,etiqueta18,etiqueta19,etiqueta20,etiqueta21,etiqueta22,etiqueta23,etiqueta24,
             etiqueta25,etiqueta26,etiqueta27,etiqueta28,etiqueta29,etiqueta30;
-    public static JLabel[] arregloEtiquetas = new JLabel[30];
-    public static JLabel[][] matrizEtiquetas = new JLabel[6][5];
-    public static String[][] matrizOrigin = new String[6][5];
+    
+    //Variables que se utilizan para representar el juego
+    public static JLabel[] arregloEtiquetas = new JLabel[35];
+    public static JLabel[][] matrizEtiquetas = new JLabel[7][5];//Matriz Grafica
+    public static Personaje[][] matrizObjetos = new Personaje[7][5];//Matriz Logica
+    public static int turnos;
         
     public VentanaJuego() {
         initComponents();
@@ -46,84 +50,66 @@ public class VentanaJuego extends javax.swing.JFrame {
 
     //Metodos
     public void ActualizarMatriz(){
-        for(int i = 0; i<6;i++){
+        for(int i = 0; i<7;i++){
             for(int j = 0;j<5;j++){
-                String actual = matrizOrigin[i][j];
-                
-                switch(actual){
-                    /*SIMBOLOGIA
-                        -Tablero-
-                        X= CASILLA VACIA
-                        Z= SPAWNPOINT
-
-                        -Zombies-
-                        G = GHOUL
-                        L = LAKELURK
-                        C = CHUBBY
-
-                        -Personajes-
-                        A = ASESINO
-                        J = blindado
-                        E = Explorador
-
-                        -Base
-                        B = BASE
-        
-                      */
-                    case "b":
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
-                    case "z":
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
-                    case "g":
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
-                    case "l":
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
-                    case "c":
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
-                    case "a":
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
-                    case "j":
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
-                    case "e":
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
-                    default:
-                        //matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nombreDeImagen")));
+                if(matrizObjetos[i][j] instanceof Casilla){
+                    
                 }
+                else if(matrizObjetos[i][j] instanceof Asesino){
+                    System.out.println("Asesino");
+                    matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZombiM.jpg")));
+                }
+                else if(matrizObjetos[i][j] instanceof Blindado){
+                    System.out.println("Blindado");
+                }
+                else if(matrizObjetos[i][j] instanceof Chubby){
+                    System.out.println("Chubby");
+                }
+                else if(matrizObjetos[i][j] instanceof Explorador){
+                    System.out.println("Explorador");
+                }
+                else if(matrizObjetos[i][j] instanceof Ghoul){
+                    System.out.println("Ghoul");
+                }
+                else {
+                    System.out.println("Lakelurk");
+                }
+                
             }
         }
+         //Declaramos cual va a ser la entrada a la base
+         for(int z = 0;z<5;z++){
+            matrizObjetos[0][z] = new Casilla(false, false, true, 0, 0, 0, 0, 0, 0);
+            matrizEtiquetas[0][z].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.jpg"))); 
+        }
+        
     } 
     
     
     public void IniciarTablero(){
-        setLayout(new GridLayout(6,5));
+        setLayout(new GridLayout(7,5));
+        //LLenar el arreglo de todos los labels
         for(int i = 0; i<arregloEtiquetas.length;i++){
             arregloEtiquetas[i] = new JLabel();
-            if((i%2)==0){
-                arregloEtiquetas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZombiM.jpg")));
-                add(arregloEtiquetas[i]);
-            }
-            else{
-                arregloEtiquetas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Blanco.png")));
-                add(arregloEtiquetas[i]);
-            }
-            
+            arregloEtiquetas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+            add(arregloEtiquetas[i]);
         }
+        //Llenar la matriz de etiquetas
         int e = 0;
-        while(e<30){
-            for(int x = 0;x<6;x++){
+        while(e<35){
+            for(int x = 0;x<7;x++){
                 for(int y = 0;y<5;y++){
                     matrizEtiquetas[x][y] = arregloEtiquetas[e];
                     e++;
                 }
             }
         }
-        for(int i = 0; i<6;i++){
+        //Inicializar la matriz de objetos poniendo todo en casillas
+        for(int i = 0; i<7;i++){
             for(int j = 0;j<5;j++){
-                matrizOrigin[i][j] = "x";
+                matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
             }
-        }
-        
-        
+        } 
         
     }
     
