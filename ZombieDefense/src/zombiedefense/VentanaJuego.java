@@ -48,6 +48,9 @@ public class VentanaJuego extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        HabilidadEspecial = new javax.swing.JLabel();
+        Disparar = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -80,11 +83,11 @@ public class VentanaJuego extends javax.swing.JFrame {
         tablero.getContentPane().setLayout(tableroLayout);
         tableroLayout.setHorizontalGroup(
             tableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1074, Short.MAX_VALUE)
+            .addGap(0, 1062, Short.MAX_VALUE)
         );
         tableroLayout.setVerticalGroup(
             tableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 671, Short.MAX_VALUE)
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 102));
@@ -94,37 +97,39 @@ public class VentanaJuego extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 102, 0));
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 548, 140, 53));
+        jLabel1.setText("Accion del jugador");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 160, 53));
 
-        jLabelMensaje1.setText("Acciones del Jugador");
-        jPanel1.add(jLabelMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 40));
+        jLabelMensaje1.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
+        jLabelMensaje1.setText("Escoja un personaje");
+        jLabelMensaje1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
+        jPanel1.add(jLabelMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 40));
 
-        BotonIzquierda.setText("jLabel2");
-        jPanel1.add(BotonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        BotonIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaIzq.jpg"))); // NOI18N
+        jPanel1.add(BotonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 80, 50));
 
-        BotonAvanzar.setText("jLabel3");
-        jPanel1.add(BotonAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+        BotonAvanzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaArriba (1).jpg"))); // NOI18N
+        jPanel1.add(BotonAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
-        BotonDerecha.setText("jLabel4");
-        jPanel1.add(BotonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+        BotonDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaDerecha.jpg"))); // NOI18N
+        jPanel1.add(BotonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 80, 50));
 
-        BotonRetroceder.setText("jLabel5");
+        BotonRetroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaAbajo.jpg"))); // NOI18N
         jPanel1.add(BotonRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
 
-        jLabelBotonSalir.setText("Salir");
+        jLabelBotonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonSalirJ.png"))); // NOI18N
         jLabelBotonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelBotonSalirMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelBotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 70, -1));
+        jPanel1.add(jLabelBotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 130, 70));
 
         jRadioButton1.setBackground(new java.awt.Color(0, 51, 51));
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setForeground(new java.awt.Color(255, 204, 51));
         jRadioButton1.setText("Revenant");
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, -1));
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, -1));
 
         jRadioButton2.setBackground(new java.awt.Color(0, 51, 51));
         buttonGroup1.add(jRadioButton2);
@@ -135,27 +140,42 @@ public class VentanaJuego extends javax.swing.JFrame {
                 jRadioButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 80, -1));
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 80, -1));
 
         jRadioButton3.setBackground(new java.awt.Color(0, 51, 51));
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setForeground(new java.awt.Color(255, 204, 51));
         jRadioButton3.setText("Dheylo");
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, -1));
+        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 80, -1));
+
+        jLabel2.setFont(new java.awt.Font("Felix Titling", 1, 14)); // NOI18N
+        jLabel2.setText("Controles");
+        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(51, 0, 0)));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 100, -1));
+
+        HabilidadEspecial.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
+        HabilidadEspecial.setText("Habilidad Especial");
+        HabilidadEspecial.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
+        jPanel1.add(HabilidadEspecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 130, 40));
+
+        Disparar.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
+        Disparar.setText("Disparar");
+        Disparar.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
+        jPanel1.add(Disparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tablero))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tablero)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -254,10 +274,13 @@ public class VentanaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel BotonDerecha;
     private javax.swing.JLabel BotonIzquierda;
     private javax.swing.JLabel BotonRetroceder;
+    private javax.swing.JLabel Disparar;
+    private javax.swing.JLabel HabilidadEspecial;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBotonSalir;
     private javax.swing.JLabel jLabelMensaje1;
     private javax.swing.JPanel jPanel1;
