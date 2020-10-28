@@ -66,7 +66,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         jTextFieldNombre.setBackground(new java.awt.Color(51, 51, 51));
         jTextFieldNombre.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
-        jTextFieldNombre.setForeground(new java.awt.Color(102, 0, 0));
+        jTextFieldNombre.setForeground(new java.awt.Color(153, 153, 0));
         jTextFieldNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
