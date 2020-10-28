@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class VentanaJuego extends javax.swing.JFrame {
@@ -16,8 +17,10 @@ public class VentanaJuego extends javax.swing.JFrame {
     public static JLabel[] arregloEtiquetas = new JLabel[35];
     public static JLabel[][] matrizEtiquetas = new JLabel[7][5];//Matriz Grafica
     public static Personaje[][] matrizObjetos = new Personaje[7][5];//Matriz Logica
-    public static int turnos;
-        
+    public static int turnos = 0;
+    public int eleccionP = 0;
+    
+    //Cpnstructor
     public VentanaJuego() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -109,6 +112,11 @@ public class VentanaJuego extends javax.swing.JFrame {
         jPanel1.add(BotonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 80, 50));
 
         BotonAvanzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaArriba (1).jpg"))); // NOI18N
+        BotonAvanzar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonAvanzarMouseClicked(evt);
+            }
+        });
         jPanel1.add(BotonAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
         BotonDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaDerecha.jpg"))); // NOI18N
@@ -129,12 +137,22 @@ public class VentanaJuego extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setForeground(new java.awt.Color(255, 204, 51));
         jRadioButton1.setText("Revenant");
+        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton1MouseClicked(evt);
+            }
+        });
         jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, -1));
 
         jRadioButton2.setBackground(new java.awt.Color(0, 51, 51));
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setForeground(new java.awt.Color(255, 204, 51));
         jRadioButton2.setText("Scout");
+        jRadioButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton2MouseClicked(evt);
+            }
+        });
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
@@ -146,6 +164,11 @@ public class VentanaJuego extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setForeground(new java.awt.Color(255, 204, 51));
         jRadioButton3.setText("Dheylo");
+        jRadioButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton3MouseClicked(evt);
+            }
+        });
         jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 80, -1));
 
         jLabel2.setFont(new java.awt.Font("Felix Titling", 1, 14)); // NOI18N
@@ -189,7 +212,189 @@ public class VentanaJuego extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabelBotonSalirMouseClicked
 
+    
+    //Modifican la eleccion de cual personaje se va a utilizar.
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+        // TODO add your handling code here:
+        eleccionP = 1;
+    }//GEN-LAST:event_jRadioButton1MouseClicked
+
+    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
+        // TODO add your handling code here:
+        eleccionP = 2;
+    }//GEN-LAST:event_jRadioButton2MouseClicked
+
+    private void jRadioButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton3MouseClicked
+        // TODO add your handling code here:
+        eleccionP = 3;
+    }//GEN-LAST:event_jRadioButton3MouseClicked
+    
+    //Verificar si hay un obstaculo
+    public boolean PoderAvanzar(int x, int y){
+        boolean rangoValido = 6>=x+1;
+        if(rangoValido){
+            if(matrizObjetos[x+1][y] instanceof Casilla){
+                Casilla elemento = (Casilla) matrizObjetos[x+1][y];
+                if(elemento.isObstaculizado()){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+        
+        
+    }
+    
+    
+    //Avanzar hacia delante
+    private void BotonAvanzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAvanzarMouseClicked
+        if(eleccionP == 0){
+            JOptionPane.showMessageDialog(null, "Debe de seleccionar el personaje que va a mover.");
+        }
+        else{
+            switch (eleccionP) {
+                case 1:
+                    int[] xyB = RetornaBlindado();
+                    if(PoderAvanzar(xyB[0],xyB[1])){
+                        matrizObjetos[xyB[0]+1][xyB[1]] = matrizObjetos[xyB[0]][xyB[1]];
+                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        jLabel1.setText("Revenant avanza");
+                        break;
+                    }
+                    else{
+                        jLabel1.setText("Estás tratando de abandonar el campo de batalla.");
+                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                        break;
+                    }
+                    
+                case 2:
+                    int[] xyE = RetornaExplorador();
+                    if(PoderAvanzar(xyE[0],xyE[1])){
+                        matrizObjetos[xyE[0]+1][xyE[1]] = matrizObjetos[xyE[0]][xyE[1]];
+                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        jLabel1.setText("Scout avanza");
+                        break;
+                    }
+                    else{
+                        jLabel1.setText("Estás tratando de abandonar el campo de batalla.");
+                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                        break;
+                    }
+                    
+                case 3:
+                    int[] xyA = RetornaAsesino();
+                    if(PoderAvanzar(xyA[0],xyA[1])){
+                        matrizObjetos[xyA[0]+1][xyA[1]] = matrizObjetos[xyA[0]][xyA[1]];
+                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        jLabel1.setText("Dheylo avanza");
+                        break;
+                    }
+                    else{
+                        jLabel1.setText("Estás tratando de abandonar el campo de batalla.");
+                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                        break;
+                    }
+                    
+            }
+            ActualizarMatriz();
+        }
+    }//GEN-LAST:event_BotonAvanzarMouseClicked
+    
     //Metodos
+    public int[] RetornaAsesino(){
+        for(int i = 0;i<7;i++){
+            for(int j = 0;j<5;j++){
+                int[] posicion = new int[2];
+                if(matrizObjetos[i][j] instanceof Asesino){
+                    posicion[0]=i;
+                    posicion[1]=j;
+                    return posicion;
+                }
+            }
+        }
+        int[] posicion = new int[1];
+        posicion[0] = 10;
+        return posicion;
+    }
+    public int[] RetornaBlindado(){
+        for(int i = 0;i<7;i++){
+            for(int j = 0;j<5;j++){
+                int[] posicion = new int[2];
+                if(matrizObjetos[i][j] instanceof Blindado){
+                    posicion[0]=i;
+                    posicion[1]=j;
+                    return posicion;
+                }
+            }
+        }
+        int[] posicion = new int[1];
+        posicion[0] = 10;
+        return posicion;
+    }
+    public int[] RetornaExplorador(){
+        for(int i = 0;i<7;i++){
+            for(int j = 0;j<5;j++){
+                int[] posicion = new int[2];
+                if(matrizObjetos[i][j] instanceof Explorador){
+                    posicion[0]=i;
+                    posicion[1]=j;
+                    return posicion;
+                }
+            }
+        }
+        int[] posicion = new int[1];
+        posicion[0] = 10;
+        return posicion;
+    }
+    public static boolean VerificarGaneZombies(){
+        for(int y = 0;y<5;y++){
+            if((matrizObjetos[0][y] instanceof Ghoul)||(matrizObjetos[0][y] instanceof Chubby)||(matrizObjetos[0][y] instanceof Lakelurk)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public void TerminarTablero(){
+        for(int i=0;i<7;i++){
+            for(int j=0;j<5;j++){
+                matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZombieGane.png")));
+            }
+        }
+    }
+    public void MoverZombies() {
+        for(int i = 0; i<7;i++){
+            for(int j = 0; j<5;j++){
+                if((matrizObjetos[i][j] instanceof Ghoul)||(matrizObjetos[i][j] instanceof Chubby)||(matrizObjetos[i][j] instanceof Lakelurk)){
+                    boolean condicion = i-1>=0;
+                    if(condicion){
+                        matrizObjetos[i-1][j] = matrizObjetos[i][j];
+                        matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        
+                    }
+                }
+                
+            }
+        }
+        if(VerificarGaneZombies()){
+            TerminarTablero();
+        }
+        else{
+            ActualizarMatriz();
+        }
+        
+    }
     public void ActualizarMatriz(){
         for(int i = 0; i<7;i++){
             for(int j = 0;j<5;j++){
@@ -265,6 +470,10 @@ public class VentanaJuego extends javax.swing.JFrame {
         matrizObjetos[4][0] = new Lakelurk(0,0,0,0,0,0,0);
         //Llamada a Actualizar
         ActualizarMatriz();
+        MoverZombies();
+        MoverZombies();
+        
+       
         
     }
     
