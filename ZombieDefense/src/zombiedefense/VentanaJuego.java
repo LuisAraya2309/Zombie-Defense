@@ -53,35 +53,35 @@ public class VentanaJuego extends javax.swing.JFrame {
         for(int i = 0; i<7;i++){
             for(int j = 0;j<5;j++){
                 if(matrizObjetos[i][j] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[i][j];
+                    if(elemento.isObstaculizado()){
+                        matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Obstaculo.jpg")));
+                    }
                     
                 }
                 else if(matrizObjetos[i][j] instanceof Asesino){
-                    System.out.println("Asesino");
-                    matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZombiM.jpg")));
+                   matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaAsesino.jpg")));
+                   
                 }
                 else if(matrizObjetos[i][j] instanceof Blindado){
-                    System.out.println("Blindado");
+                    matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaPesado.jpg")));
                 }
                 else if(matrizObjetos[i][j] instanceof Chubby){
-                    System.out.println("Chubby");
+                   matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ChubbyCasilla.jpg")));
                 }
                 else if(matrizObjetos[i][j] instanceof Explorador){
-                    System.out.println("Explorador");
+                   matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaSniper.jpg")));
                 }
                 else if(matrizObjetos[i][j] instanceof Ghoul){
-                    System.out.println("Ghoul");
+                    matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GhoulCasilla.jpg")));
                 }
                 else {
-                    System.out.println("Lakelurk");
+                    matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LakelurkCasilla.jpg")));
                 }
                 
             }
         }
-         //Declaramos cual va a ser la entrada a la base
-         for(int z = 0;z<5;z++){
-            matrizObjetos[0][z] = new Casilla(false, false, true, 0, 0, 0, 0, 0, 0);
-            matrizEtiquetas[0][z].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.jpg"))); 
-        }
+         
         
     } 
     
@@ -109,7 +109,22 @@ public class VentanaJuego extends javax.swing.JFrame {
             for(int j = 0;j<5;j++){
                 matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
             }
-        } 
+        }
+        //Declaramos cual va a ser la entrada a la base
+         for(int z = 0;z<5;z++){
+            matrizObjetos[0][z] = new Casilla(false, false, true, 0, 0, 0, 0, 0, 0);
+            matrizEtiquetas[0][z].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.jpg"))); 
+        }
+        //Pruebas
+        matrizObjetos[3][3] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0);
+        matrizObjetos[2][2] = new Asesino(0,0,0,0,0,0);
+        matrizObjetos[1][1] = new Blindado(0, true,0,0,0,0,0,0);
+        matrizObjetos[5][2] = new Chubby(0,0,0,0,0,0,0);
+        matrizObjetos[1][4] = new Explorador(0,0,0,0,0,0);
+        matrizObjetos[3][0] = new Ghoul(0,0,0,0,0,0,0);       
+        matrizObjetos[6][1] = new Lakelurk(0,0,0,0,0,0,0);
+        //Llamada a Actualizar
+        ActualizarMatriz();
         
     }
     
