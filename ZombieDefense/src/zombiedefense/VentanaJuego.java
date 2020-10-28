@@ -35,12 +35,19 @@ public class VentanaJuego extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jFrame2 = new javax.swing.JFrame();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         tablero = new javax.swing.JInternalFrame();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabelMensaje1 = new javax.swing.JLabel();
+        BotonIzquierda = new javax.swing.JLabel();
+        BotonAvanzar = new javax.swing.JLabel();
+        BotonDerecha = new javax.swing.JLabel();
+        BotonRetroceder = new javax.swing.JLabel();
+        jLabelBotonSalir = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -80,20 +87,10 @@ public class VentanaJuego extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(102, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(102, 0, 0)));
+        jPanel1.setForeground(new java.awt.Color(255, 204, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-
-        jButton2.setText("jButton2");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 102, 0));
@@ -101,7 +98,50 @@ public class VentanaJuego extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 548, 140, 53));
 
         jLabelMensaje1.setText("Acciones del Jugador");
-        jPanel1.add(jLabelMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 40));
+        jPanel1.add(jLabelMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 40));
+
+        BotonIzquierda.setText("jLabel2");
+        jPanel1.add(BotonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+
+        BotonAvanzar.setText("jLabel3");
+        jPanel1.add(BotonAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+
+        BotonDerecha.setText("jLabel4");
+        jPanel1.add(BotonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+
+        BotonRetroceder.setText("jLabel5");
+        jPanel1.add(BotonRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
+
+        jLabelBotonSalir.setText("Salir");
+        jLabelBotonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBotonSalirMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabelBotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 70, -1));
+
+        jRadioButton1.setBackground(new java.awt.Color(0, 51, 51));
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setForeground(new java.awt.Color(255, 204, 51));
+        jRadioButton1.setText("Revenant");
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, -1));
+
+        jRadioButton2.setBackground(new java.awt.Color(0, 51, 51));
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setForeground(new java.awt.Color(255, 204, 51));
+        jRadioButton2.setText("Scout");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 80, -1));
+
+        jRadioButton3.setBackground(new java.awt.Color(0, 51, 51));
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setForeground(new java.awt.Color(255, 204, 51));
+        jRadioButton3.setText("Dheylo");
+        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,9 +161,13 @@ public class VentanaJuego extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jLabelBotonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBotonSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabelBotonSalirMouseClicked
 
     //Metodos
     public void ActualizarMatriz(){
@@ -206,13 +250,20 @@ public class VentanaJuego extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel BotonAvanzar;
+    private javax.swing.JLabel BotonDerecha;
+    private javax.swing.JLabel BotonIzquierda;
+    private javax.swing.JLabel BotonRetroceder;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelBotonSalir;
     private javax.swing.JLabel jLabelMensaje1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JInternalFrame tablero;
     // End of variables declaration//GEN-END:variables
 }
