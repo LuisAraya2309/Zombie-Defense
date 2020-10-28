@@ -44,7 +44,7 @@ public class PreviewHeroes extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RH.png"))); // NOI18N
+        jLabelRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonRegresarH.png"))); // NOI18N
         jLabelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelRegresarMouseClicked(evt);
@@ -52,7 +52,7 @@ public class PreviewHeroes extends javax.swing.JFrame {
         });
         getContentPane().add(jLabelRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, -10, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ba26dbae7487041f4d7c1948cbb3bccb.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RevenantPreview.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 170, 240));
 
         jTextArea1.setBackground(new java.awt.Color(51, 51, 51));
@@ -66,7 +66,7 @@ public class PreviewHeroes extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 170, 170));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/capitan-america-el-soldado-de-invierno-bucky-barnes-papel-pintado-15598_L.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ScoutPreview.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 170, 240));
 
         jTextArea2.setBackground(new java.awt.Color(51, 51, 51));
@@ -80,7 +80,7 @@ public class PreviewHeroes extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 170, 170));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/f23be9a99232c9e58ec9a393e64fb1fc.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/DheyloPreview.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 170, 240));
 
         jTextArea3.setBackground(new java.awt.Color(51, 51, 51));
@@ -93,7 +93,7 @@ public class PreviewHeroes extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 170, 170));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/apocalipsis_nostradamus_biblia_fin_del_mundo_mayas.jpg_759710130.jpg"))); // NOI18N
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoPreviewH.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 600));
 
         pack();

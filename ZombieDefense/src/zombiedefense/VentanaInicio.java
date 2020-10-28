@@ -40,7 +40,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelZombi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cooltext366225730489652.png"))); // NOI18N
+        jLabelZombi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonZombie.png"))); // NOI18N
         jLabelZombi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelZombiMouseClicked(evt);
@@ -48,7 +48,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         getContentPane().add(jLabelZombi, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 600, -1, -1));
 
-        jLabelHeroe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cooltext366225860297411.png"))); // NOI18N
+        jLabelHeroe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonHeroe.png"))); // NOI18N
         jLabelHeroe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelHeroeMouseClicked(evt);
@@ -56,7 +56,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         getContentPane().add(jLabelHeroe, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, -1, -1));
 
-        jLabelSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Salir.png"))); // NOI18N
+        jLabelSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonSalir.png"))); // NOI18N
         jLabelSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelSalirMouseClicked(evt);
@@ -80,7 +80,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         jLabelIngreseN.setText("Ingrese un nombre para el personaje:");
         getContentPane().add(jLabelIngreseN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, -1, -1));
 
-        jLabelJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Cool Text - Jugar 366228694806627.png"))); // NOI18N
+        jLabelJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonJugar.png"))); // NOI18N
         jLabelJugar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelJugarMouseClicked(evt);
@@ -88,7 +88,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         getContentPane().add(jLabelJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, -1));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fondo.jpg"))); // NOI18N
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoInicio.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-210, 0, 1170, 670));
 
         pack();

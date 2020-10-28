@@ -29,7 +29,7 @@
     <Component class="javax.swing.JLabel" name="jLabelRegresar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/RH.png"/>
+          <Image iconType="3" name="/imagenes/BotonRegresarH.png"/>
         </Property>
       </Properties>
       <Events>
@@ -44,7 +44,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/ba26dbae7487041f4d7c1948cbb3bccb.png"/>
+          <Image iconType="3" name="/imagenes/RevenantPreview.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -89,7 +89,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/capitan-america-el-soldado-de-invierno-bucky-barnes-papel-pintado-15598_L.png"/>
+          <Image iconType="3" name="/imagenes/ScoutPreview.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -134,7 +134,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/f23be9a99232c9e58ec9a393e64fb1fc.png"/>
+          <Image iconType="3" name="/imagenes/DheyloPreview.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -176,7 +176,7 @@
     <Component class="javax.swing.JLabel" name="jLabelFondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/apocalipsis_nostradamus_biblia_fin_del_mundo_mayas.jpg_759710130.jpg"/>
+          <Image iconType="3" name="/imagenes/FondoPreviewH.jpg"/>
         </Property>
       </Properties>
       <Constraints>

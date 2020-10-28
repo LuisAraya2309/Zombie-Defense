@@ -29,7 +29,7 @@
     <Component class="javax.swing.JLabel" name="jLabelZombi">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/cooltext366225730489652.png"/>
+          <Image iconType="3" name="/imagenes/BotonZombie.png"/>
         </Property>
       </Properties>
       <Events>
@@ -44,7 +44,7 @@
     <Component class="javax.swing.JLabel" name="jLabelHeroe">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/cooltext366225860297411.png"/>
+          <Image iconType="3" name="/imagenes/BotonHeroe.png"/>
         </Property>
       </Properties>
       <Events>
@@ -59,7 +59,7 @@
     <Component class="javax.swing.JLabel" name="jLabelSalir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Salir.png"/>
+          <Image iconType="3" name="/imagenes/BotonSalir.png"/>
         </Property>
       </Properties>
       <Events>
@@ -114,7 +114,7 @@
     <Component class="javax.swing.JLabel" name="jLabelJugar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Cool Text - Jugar 366228694806627.png"/>
+          <Image iconType="3" name="/imagenes/BotonJugar.png"/>
         </Property>
       </Properties>
       <Events>
@@ -129,7 +129,7 @@
     <Component class="javax.swing.JLabel" name="jLabelFondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Fondo.jpg"/>
+          <Image iconType="3" name="/imagenes/FondoInicio.jpg"/>
         </Property>
       </Properties>
       <Constraints>
