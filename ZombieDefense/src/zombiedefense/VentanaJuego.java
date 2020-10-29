@@ -18,6 +18,7 @@ public class VentanaJuego extends javax.swing.JFrame {
     public static JLabel[][] matrizEtiquetas = new JLabel[7][5];//Matriz Grafica
     public static Personaje[][] matrizObjetos = new Personaje[7][5];//Matriz Logica
     public int turnos = 0;
+    public int movimientos = 0;
     public int eleccionP = 0;
     
     //Cpnstructor
@@ -252,6 +253,34 @@ public class VentanaJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
         eleccionP = 3;
     }//GEN-LAST:event_jRadioButton3MouseClicked
+    //Actualizar stats
+    public void ActualizarStats(){
+        for(int i=0;i<7;i++){
+            for(int j=0;j<5;j++){
+                boolean condition = matrizObjetos[i][j] instanceof Casilla;
+                if(!condition ){
+                    boolean esPersonaje = (matrizObjetos[i][j] instanceof Asesino)||(matrizObjetos[i][j] instanceof Blindado)||(matrizObjetos[i][j] instanceof Explorador);
+                    if(esPersonaje){
+                        matrizObjetos[i][j].setAtaque(turnos*50);
+                        matrizObjetos[i][j].setSalud(matrizObjetos[i][j].getSalud()+100);
+                    }
+                    else{
+                        matrizObjetos[i][j].setAtaque(matrizObjetos[i][j].getAtaque()+turnos*30);
+                        matrizObjetos[i][j].setSalud(matrizObjetos[i][j].getSalud()+50);
+                    }
+                }
+            }
+        }
+    }
+    //Actualizar turnos
+    public void ActualizarTurnos(int movimientos){
+        if((movimientos%2)==0){
+            turnos++;
+            ActualizarStats();
+        }
+        
+    }
+    
     
     //Verificar si hay un obstaculo delante
     public boolean PoderAvanzar(int x, int y){
@@ -354,6 +383,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -369,6 +400,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -384,6 +417,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -409,6 +444,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -424,6 +461,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -439,6 +478,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -465,6 +506,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -480,6 +523,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -495,6 +540,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -521,6 +568,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -536,6 +585,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -551,6 +602,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
                         MoverZombies();
+                        movimientos++;
+                        ActualizarTurnos(movimientos);
                         break;
                     }
                     else{
@@ -737,14 +790,22 @@ public class VentanaJuego extends javax.swing.JFrame {
             matrizObjetos[0][z] = new Casilla(false, false, true, 0, 0, 0, 0, 0, 0);
             matrizEtiquetas[0][z].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.jpg"))); 
         }
-        //Pruebas
+        //Personajes y Zombies Iniciales
+        
+        //Armas
+        Arma sniper = new Arma (4000,2,500,100);
+        Arma shotgun = new Arma(4000,3,500,100);
+        Arma arco = new Arma(1000, 0,200,100);
+        //Casilla Obstaculizada
         matrizObjetos[3][3] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0);
-        matrizObjetos[2][2] = new Asesino(0,0,0,0,0,0);
-        matrizObjetos[1][1] = new Blindado(0, true,0,0,0,0,0,0);
-        matrizObjetos[6][2] = new Chubby(0,0,0,0,0,0,0);
-        matrizObjetos[1][4] = new Explorador(0,0,0,0,0,0);
-        matrizObjetos[5][4] = new Ghoul(0,0,0,0,0,0,0);       
-        matrizObjetos[6][0] = new Lakelurk(0,0,0,0,0,0,0);
+        //Personajes
+        matrizObjetos[2][2] = new Asesino(1,1000,0,0,3,0,arco); //public Asesino(int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp,Arma arco)
+        matrizObjetos[1][1] = new Blindado(0, false,1,3000,0,0,2,0,shotgun);
+        matrizObjetos[1][4] = new Explorador(1,500,0,0,5,0,sniper);
+        //Zombies
+        matrizObjetos[6][2] = new Chubby(25,1,2500,1000,0,1,0); 
+        matrizObjetos[5][4] = new Ghoul(10,1,950,500,0,1,0);      
+        matrizObjetos[6][0] = new Lakelurk(1,1500,1500,0,1,0);
         //Llamada a Actualizar
         ActualizarMatriz();
        

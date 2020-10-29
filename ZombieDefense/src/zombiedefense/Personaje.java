@@ -12,13 +12,13 @@ public class Personaje {
     protected int exp;
     
     
-    public Personaje(int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp) {
+    public Personaje(int nivel, int salud,int ataque,int defensa, int rangoDeVision, int exp) {
         this.nivel = nivel;
         this.salud = salud;
-        this.ataque = ataque;
+        this.ataque=ataque;
         this.defensa = defensa;
         this.rangoDeVision = rangoDeVision;
-        this.exp = exp;
+        this.exp = exp; 
     }
    
     
@@ -42,13 +42,11 @@ public class Personaje {
     public void setSalud(int salud) {
         this.salud = salud;
     }
-
- 
-    public int getAtaque() {
+    
+     public int getAtaque() {
         return ataque;
     }
 
-    
     public void setAtaque(int ataque) {
         this.ataque = ataque;
     }
