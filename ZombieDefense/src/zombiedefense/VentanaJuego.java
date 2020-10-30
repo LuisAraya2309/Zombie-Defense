@@ -56,6 +56,8 @@ public class VentanaJuego extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         HabilidadEspecial = new javax.swing.JLabel();
         Disparar = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -102,7 +104,7 @@ public class VentanaJuego extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 0));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 160, 53));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 160, 53));
 
         jLabelMensaje1.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         jLabelMensaje1.setForeground(new java.awt.Color(51, 0, 0));
@@ -116,7 +118,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 BotonIzquierdaMouseClicked(evt);
             }
         });
-        jPanel1.add(BotonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 80, 50));
+        jPanel1.add(BotonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 80, 50));
 
         BotonAvanzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaArriba (1).jpg"))); // NOI18N
         BotonAvanzar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,7 +126,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 BotonAvanzarMouseClicked(evt);
             }
         });
-        jPanel1.add(BotonAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+        jPanel1.add(BotonAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         BotonDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaDerecha.jpg"))); // NOI18N
         BotonDerecha.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,7 +134,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 BotonDerechaMouseClicked(evt);
             }
         });
-        jPanel1.add(BotonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 80, 50));
+        jPanel1.add(BotonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 80, 50));
 
         BotonRetroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaAbajo.jpg"))); // NOI18N
         BotonRetroceder.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,7 +142,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 BotonRetrocederMouseClicked(evt);
             }
         });
-        jPanel1.add(BotonRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
+        jPanel1.add(BotonRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
 
         jLabelBotonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonSalirJ.png"))); // NOI18N
         jLabelBotonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,7 +150,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 jLabelBotonSalirMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelBotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, 130, 70));
+        jPanel1.add(jLabelBotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, 130, 50));
 
         jRadioButton1.setBackground(new java.awt.Color(51, 0, 0));
         buttonGroup1.add(jRadioButton1);
@@ -191,7 +193,7 @@ public class VentanaJuego extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel2.setText("Turnos Restantes 15");
+        jLabel2.setText("Turnos Restantes 10");
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(51, 0, 0)));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 150, -1));
 
@@ -204,13 +206,30 @@ public class VentanaJuego extends javax.swing.JFrame {
                 HabilidadEspecialMouseClicked(evt);
             }
         });
-        jPanel1.add(HabilidadEspecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 130, 40));
+        jPanel1.add(HabilidadEspecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 130, 40));
 
         Disparar.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         Disparar.setForeground(new java.awt.Color(51, 0, 0));
         Disparar.setText("Disparar");
         Disparar.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
-        jPanel1.add(Disparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 130, 40));
+        Disparar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DispararMouseClicked(evt);
+            }
+        });
+        jPanel1.add(Disparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 70, 40));
+
+        jLabel3.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 0, 0));
+        jLabel3.setText("Curación");
+        jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, -1, 40));
+
+        jLabel4.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 0, 0));
+        jLabel4.setText("Ataque de Cuerpo");
+        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,13 +287,13 @@ public class VentanaJuego extends javax.swing.JFrame {
                 if(esCasilla){
                     switch (tipo) {
                     case 1:
-                        matrizObjetos[i][j] = new Ghoul(10,1,950,500,0,2,0);
+                        matrizObjetos[i][j] = new Ghoul(10,1,950,500,0,2,0,null);
                         break;
                     case 2:
-                        matrizObjetos[i][j] = new Chubby(25,1,2500,1000,0,2,0);
+                        matrizObjetos[i][j] = new Chubby(25,1,2500,1000,0,2,0,null);
                         break;
                     default: 
-                        matrizObjetos[i][j] = new Lakelurk(1,1500,1500,0,2,0);
+                        matrizObjetos[i][j] = new Lakelurk(1,1500,1500,0,2,0,null);
                         break;
                 }
                 } 
@@ -433,7 +452,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyB = RetornaBlindado();
                     if(PoderAvanzarAtras(xyB[0],xyB[1])){
                         matrizObjetos[xyB[0]-1][xyB[1]] = matrizObjetos[xyB[0]][xyB[1]];
-                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
                         movimientos++;
@@ -449,7 +468,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyE = RetornaExplorador();
                     if(PoderAvanzarAtras(xyE[0],xyE[1])){
                         matrizObjetos[xyE[0]-1][xyE[1]] = matrizObjetos[xyE[0]][xyE[1]];
-                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
                         movimientos++;
@@ -465,7 +484,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyA = RetornaAsesino();
                     if(PoderAvanzarAtras(xyA[0],xyA[1])){
                         matrizObjetos[xyA[0]-1][xyA[1]] = matrizObjetos[xyA[0]][xyA[1]];
-                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
                         movimientos++;
@@ -491,7 +510,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyB = RetornaBlindado();
                     if(PoderAvanzarDerecha(xyB[0],xyB[1])){
                         matrizObjetos[xyB[0]][xyB[1]+1] = matrizObjetos[xyB[0]][xyB[1]];
-                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
                         movimientos++;
@@ -507,7 +526,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyE = RetornaExplorador();
                     if(PoderAvanzarDerecha(xyE[0],xyE[1])){
                         matrizObjetos[xyE[0]][xyE[1]+1] = matrizObjetos[xyE[0]][xyE[1]];
-                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
                         movimientos++;
@@ -523,7 +542,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyA = RetornaAsesino();
                     if(PoderAvanzarDerecha(xyA[0],xyA[1])){
                         matrizObjetos[xyA[0]][xyA[1]+1] = matrizObjetos[xyA[0]][xyA[1]];
-                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
                         movimientos++;
@@ -550,7 +569,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyB = RetornaBlindado();
                     if(PoderAvanzar(xyB[0],xyB[1])){
                         matrizObjetos[xyB[0]+1][xyB[1]] = matrizObjetos[xyB[0]][xyB[1]];
-                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
                         movimientos++;
@@ -566,7 +585,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyE = RetornaExplorador();
                     if(PoderAvanzar(xyE[0],xyE[1])){
                         matrizObjetos[xyE[0]+1][xyE[1]] = matrizObjetos[xyE[0]][xyE[1]];
-                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
                         movimientos++;
@@ -582,7 +601,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyA = RetornaAsesino();
                     if(PoderAvanzar(xyA[0],xyA[1])){
                         matrizObjetos[xyA[0]+1][xyA[1]] = matrizObjetos[xyA[0]][xyA[1]];
-                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
                         movimientos++;
@@ -609,7 +628,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyB = RetornaBlindado();
                     if(PoderAvanzarIzquierda(xyB[0],xyB[1])){
                         matrizObjetos[xyB[0]][xyB[1]-1] = matrizObjetos[xyB[0]][xyB[1]];
-                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
                         movimientos++;
@@ -625,7 +644,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyE = RetornaExplorador();
                     if(PoderAvanzarIzquierda(xyE[0],xyE[1])){
                         matrizObjetos[xyE[0]][xyE[1]-1] = matrizObjetos[xyE[0]][xyE[1]];
-                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
                         movimientos++;
@@ -641,7 +660,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int[] xyA = RetornaAsesino();
                     if(PoderAvanzarIzquierda(xyA[0],xyA[1])){
                         matrizObjetos[xyA[0]][xyA[1]-1] = matrizObjetos[xyA[0]][xyA[1]];
-                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
                         movimientos++;
@@ -659,7 +678,7 @@ public class VentanaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonIzquierdaMouseClicked
 
     private void HabilidadEspecialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HabilidadEspecialMouseClicked
-     if(eleccionP == 0){
+        if(eleccionP == 0){
             JOptionPane.showMessageDialog(null, "Debe de seleccionar el personaje que va a utilizar en esta ronda.");
         }
         else{
@@ -676,6 +695,111 @@ public class VentanaJuego extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_HabilidadEspecialMouseClicked
+
+    private void DispararMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DispararMouseClicked
+        if(eleccionP == 0){
+            JOptionPane.showMessageDialog(null, "Debe de seleccionar el personaje que va a utilizar en esta ronda.");
+        }
+        else{
+            int xy [];
+            switch (eleccionP) {
+                case 1:
+                    //Dispara Revenant
+                    movimientos++;
+                    xy = RetornaBlindado();
+                    int cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
+                    while(cont!=0){
+                        if(xy[0]-cont>=0){
+                            if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
+                                matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-matrizObjetos[xy[0]][xy[1]].getAtaque());
+                                if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
+                                    if(matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby){
+                                        jRadioButton1.setEnabled(false);
+                                    }
+                                    else if(matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk){
+                                        jRadioButton2.setEnabled(false);
+                                    }
+                                    else{
+                                        jRadioButton3.setEnabled(false);
+                                    }
+
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                    ActualizarMatriz();
+                                    }
+                                }
+                        }else if(xy[1]-cont>=0){
+                            if((matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
+                                matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-matrizObjetos[xy[0]][xy[1]].getAtaque());
+                                if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
+                                    if(matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby){
+                                        jRadioButton1.setEnabled(false);
+                                    }
+                                    else if(matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk){
+                                        jRadioButton2.setEnabled(false);
+                                    }
+                                    else{
+                                        jRadioButton3.setEnabled(false);
+                                    }
+
+                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                    ActualizarMatriz();
+                                }
+                            }
+                        }else if (xy[0]+cont<=6){
+                            if((matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
+                                matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-matrizObjetos[xy[0]][xy[1]].getAtaque());
+                                if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
+                                    if(matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby){
+                                        jRadioButton1.setEnabled(false);
+                                    }
+                                    else if(matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk){
+                                        jRadioButton2.setEnabled(false);
+                                    }
+                                    else{
+                                        jRadioButton3.setEnabled(false);
+                                    }
+
+                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                    ActualizarMatriz();
+                                }
+                            }
+                        }else if(xy[1]+cont>=0){
+                            if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
+                                matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-matrizObjetos[xy[0]][xy[1]].getAtaque());
+                                if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
+                                    if(matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby){
+                                        jRadioButton1.setEnabled(false);
+                                    }
+                                    else if(matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk){
+                                        jRadioButton2.setEnabled(false);
+                                    }
+                                    else{
+                                        jRadioButton3.setEnabled(false);
+                                    }
+                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                    ActualizarMatriz();
+                                }
+                            }
+                        }
+                        cont--;
+                    }
+                    
+                    break;
+                case 2:
+                    xy = RetornaExplorador();
+                    //Dispara Scout
+                    break;
+                case 3:
+                    xy = RetornaAsesino();
+                    //Dispara Dheylo
+                    break;
+            }
+        }
+    }//GEN-LAST:event_DispararMouseClicked
 
     //Metodos
     public int[] RetornaAsesino(){
@@ -949,7 +1073,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     if(!elemento.isObstaculizado()){
                         if ((matrizObjetos[x-cont][y] instanceof Asesino) ||(matrizObjetos[x-cont][y] instanceof Blindado) || (matrizObjetos[x-cont][y] instanceof Explorador)){
                             matrizObjetos[x-1][y] = matrizObjetos[x][y];
-                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                             matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         }
                     }
@@ -963,7 +1087,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     if(!elemento.isObstaculizado()){
                         if ((matrizObjetos[x+cont][y] instanceof Asesino) ||(matrizObjetos[x+cont][y] instanceof Blindado) || (matrizObjetos[x+cont][y] instanceof Explorador)){
                             matrizObjetos[x+1][y] = matrizObjetos[x][y];
-                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                             matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         }
                     }
@@ -977,7 +1101,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     if(!elemento.isObstaculizado()){
                         if ((matrizObjetos[x][y+cont] instanceof Asesino) ||(matrizObjetos[x][y+cont] instanceof Blindado) || (matrizObjetos[x][y+cont] instanceof Explorador)){
                             matrizObjetos[x][y+1] = matrizObjetos[x][y];
-                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                             matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         }
                     }
@@ -991,7 +1115,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     if(!elemento.isObstaculizado()){
                         if ((matrizObjetos[x][y-cont] instanceof Asesino) ||(matrizObjetos[x][y-cont] instanceof Blindado) || (matrizObjetos[x][y-cont] instanceof Explorador)){
                             matrizObjetos[x][y-1] = matrizObjetos[x][y];
-                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                             matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         }
                     }
@@ -1052,19 +1176,19 @@ public class VentanaJuego extends javax.swing.JFrame {
                             case 1:
                                 if (matrizObjetos[x-cont][y] instanceof Asesino){
                                     matrizObjetos[x-1][y] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 2:
                                 if (matrizObjetos[x-cont][y] instanceof Blindado){
                                     matrizObjetos[x-1][y] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 3:
                                 if (matrizObjetos[x-cont][y] instanceof Explorador){
                                     matrizObjetos[x-1][y] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             default:
@@ -1083,19 +1207,19 @@ public class VentanaJuego extends javax.swing.JFrame {
                             case 1:
                                 if (matrizObjetos[x+cont][y] instanceof Asesino){
                                     matrizObjetos[x+1][y] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 2:
                                 if (matrizObjetos[x+cont][y] instanceof Blindado){
                                     matrizObjetos[x+1][y] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 3:
                                 if (matrizObjetos[x+cont][y] instanceof Explorador){
                                     matrizObjetos[x+1][y] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             default:
@@ -1114,19 +1238,19 @@ public class VentanaJuego extends javax.swing.JFrame {
                             case 1:
                                 if (matrizObjetos[x][y+cont] instanceof Asesino){
                                     matrizObjetos[x][y+1] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 2:
                                 if (matrizObjetos[x][y+cont] instanceof Blindado){
                                     matrizObjetos[x][y+1] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 3:
                                 if (matrizObjetos[x][y+cont] instanceof Explorador){
                                     matrizObjetos[x][y+1] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             default:
@@ -1145,19 +1269,19 @@ public class VentanaJuego extends javax.swing.JFrame {
                             case 1:
                                 if (matrizObjetos[x][y-cont] instanceof Asesino){
                                     matrizObjetos[x][y-1] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 2:
                                 if (matrizObjetos[x][y-cont] instanceof Blindado){
                                     matrizObjetos[x][y-1] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 3:
                                 if (matrizObjetos[x][y-cont] instanceof Explorador){
                                     matrizObjetos[x][y-1] = matrizObjetos[x][y];
-                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             default:
@@ -1186,7 +1310,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                         jRadioButton3.setEnabled(false);
                     }
                     
-                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                     matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                     ActualizarMatriz();
                     if(TodosMuertos()){
@@ -1208,7 +1332,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     else{
                         jRadioButton3.setEnabled(false);
                     }
-                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                     matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                     ActualizarMatriz();
                     if(TodosMuertos()){
@@ -1230,7 +1354,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     else{
                         jRadioButton3.setEnabled(false);
                     }
-                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                     matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                     ActualizarMatriz();
                     if(TodosMuertos()){
@@ -1252,7 +1376,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     else{
                         jRadioButton3.setEnabled(false);
                     }
-                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                     matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                     ActualizarMatriz();
                     if(TodosMuertos()){
@@ -1283,7 +1407,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Casilla elemento = (Casilla) matrizObjetos[i-1][j];
                                 if(!elemento.isObstaculizado()){
                                     matrizObjetos[i-1][j] = matrizObjetos[i][j];
-                                    matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }
                             }
@@ -1349,12 +1473,12 @@ public class VentanaJuego extends javax.swing.JFrame {
         //Inicializar la matriz de objetos poniendo todo en casillas
         for(int i = 0; i<7;i++){
             for(int j = 0;j<5;j++){
-                matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
             }
         }
         //Declaramos cual va a ser la entrada a la base
          for(int z = 0;z<5;z++){
-            matrizObjetos[0][z] = new Casilla(false, false, true, 0, 0, 0, 0, 0, 0);
+            matrizObjetos[0][z] = new Casilla(false, false, true, 0, 0, 0, 0, 0, 0,null);
             matrizEtiquetas[0][z].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.jpg"))); 
         }
         //Personajes y Zombies Iniciales
@@ -1364,20 +1488,18 @@ public class VentanaJuego extends javax.swing.JFrame {
         Arma shotgun = new Arma(4000,3,500,100,false);
         Arma arco = new Arma(1000, 0,200,100,false);
         //Casilla Obstaculizada
-        matrizObjetos[3][3] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0);
-        matrizObjetos[4][1] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0);
+        matrizObjetos[3][3] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0,null);
+        matrizObjetos[4][1] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0,null);
         //Personajes
-        matrizObjetos[2][2] = new Asesino(1,1000,0,0,3,0,arco); //public Asesino(int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp,Arma arco)
-        matrizObjetos[1][1] = new Blindado(0, false,1,3000,0,0,2,0,shotgun);
-        matrizObjetos[1][4] = new Explorador(1,500,0,0,5,0,sniper);
+        matrizObjetos[2][2] = new Asesino(1,1000,0,0,3,0,null,arco);
+        matrizObjetos[1][1] = new Blindado(0, false,1,3000,0,0,2,0,null,shotgun);
+        matrizObjetos[1][4] = new Explorador(1,500,0,0,5,0,null,sniper);
         //Zombies
-        matrizObjetos[6][2] = new Chubby(25,1,2500,1000,0,2,0);
-        matrizObjetos[5][4] = new Ghoul(10,1,950,500,0,2,0);      
-        matrizObjetos[6][0] = new Lakelurk(1,1500,1500,0,2,0);
+        matrizObjetos[6][2] = new Chubby(25,1,2500,1000,0,2,0,null);
+        matrizObjetos[5][4] = new Ghoul(10,1,950,500,0,2,0,null);      
+        matrizObjetos[6][0] = new Lakelurk(1,1500,1500,0,2,0,null);
         //Llamada a Actualizar
-        ActualizarMatriz();
-       
-        
+        ActualizarMatriz();   
     }
     
 
@@ -1393,6 +1515,8 @@ public class VentanaJuego extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelBotonSalir;
     private javax.swing.JLabel jLabelMensaje1;
     private javax.swing.JPanel jPanel1;

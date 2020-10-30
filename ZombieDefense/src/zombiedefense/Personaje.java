@@ -10,15 +10,16 @@ public class Personaje {
     protected int defensa;
     protected int rangoDeVision;
     protected int exp;
+    protected Items loot;
     
-    
-    public Personaje(int nivel, int salud,int ataque,int defensa, int rangoDeVision, int exp) {
+    public Personaje(int nivel, int salud,int ataque,int defensa, int rangoDeVision, int exp, Items loot) {
         this.nivel = nivel;
         this.salud = salud;
         this.ataque=ataque;
         this.defensa = defensa;
         this.rangoDeVision = rangoDeVision;
         this.exp = exp; 
+        this.loot = loot;
     }
    
     
@@ -70,7 +71,6 @@ public class Personaje {
     public void setRangoDeVision(int rangoDeVision) {
         this.rangoDeVision = rangoDeVision;
     }
-
     
     public int getExp() {
         return exp;
@@ -79,6 +79,12 @@ public class Personaje {
     public void setExp(int exp) {
         this.exp = exp;
     }
-    
+     public Items getLoot() {
+        return loot;
+    }
+
+    public void setLoot(Items loot) {
+        this.loot = loot;
+    }
     
 }

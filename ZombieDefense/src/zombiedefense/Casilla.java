@@ -4,14 +4,13 @@ package zombiedefense;
 
 public class Casilla extends Personaje{
 
-   
     //Atributos
     private boolean obstaculizado;
     private boolean cubierto;
     private boolean esEntrada;
     
-    public Casilla(boolean obstaculizado, boolean cubierto, boolean esEntrada, int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp) {
-        super(nivel, salud, ataque, defensa, rangoDeVision, exp);
+    public Casilla(boolean obstaculizado, boolean cubierto, boolean esEntrada, int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp, Items loot) {
+        super(nivel, salud, ataque, defensa, rangoDeVision, exp, loot);
         this.obstaculizado = obstaculizado;
         this.cubierto = cubierto;
         this.esEntrada = esEntrada;
@@ -41,7 +40,4 @@ public class Casilla extends Personaje{
     public void setEsEntrada(boolean esEntrada) {
         this.esEntrada = esEntrada;
     }
-    
-    
-    
 }

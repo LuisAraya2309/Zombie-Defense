@@ -8,8 +8,8 @@ public class Blindado extends Personaje {
     private boolean protegido;
     private Arma shotgun;
  
-    public Blindado(int escudo, boolean protegido, int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp, Arma shotgun) {
-        super(nivel, salud, ataque, defensa, rangoDeVision, exp);
+    public Blindado(int escudo, boolean protegido, int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp, Items loot, Arma shotgun) {
+        super(nivel, salud, ataque, defensa, rangoDeVision, exp, loot);
         this.escudo = escudo;
         this.protegido = protegido;
         this.shotgun = shotgun;
