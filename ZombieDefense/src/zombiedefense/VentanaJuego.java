@@ -20,6 +20,7 @@ public class VentanaJuego extends javax.swing.JFrame {
     public int turnos = 0;
     public int movimientos = 0;
     public int eleccionP = 0;
+    public int ronda = 1;
     
     //Cpnstructor
     public VentanaJuego() {
@@ -100,7 +101,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 102, 0));
+        jLabel1.setForeground(new java.awt.Color(51, 0, 0));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 160, 53));
 
         jLabelMensaje1.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
@@ -264,23 +265,24 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[i][j].setAtaque(turnos*50);
                         matrizObjetos[i][j].setSalud(matrizObjetos[i][j].getSalud()+100);
                     }
-                    else{
+                    /*else{
                         matrizObjetos[i][j].setAtaque(matrizObjetos[i][j].getAtaque()+turnos*30);
                         matrizObjetos[i][j].setSalud(matrizObjetos[i][j].getSalud()+50);
-                    }
+                    }*/
                 }
             }
         }
     }
     //Actualizar turnos
     public void ActualizarTurnos(int movimientos){
-        if((movimientos%2)==0){
+        if(movimientos%3==0){
+            ronda++;
             turnos++;
+            jLabel1.setText("Ronda " + ronda );
+            MoverZombies();
             ActualizarStats();
         }
-        
     }
-    
     
     //Verificar si hay un obstaculo delante
     public boolean PoderAvanzar(int x, int y){
@@ -382,7 +384,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -399,7 +400,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -416,7 +416,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -443,7 +442,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -460,7 +458,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -477,7 +474,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -505,7 +501,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -522,7 +517,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -539,7 +533,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -567,7 +560,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Revenant avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -584,7 +576,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Scout avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -601,7 +592,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                         matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                         jLabel1.setText("Dheylo avanza");
-                        MoverZombies();
                         movimientos++;
                         ActualizarTurnos(movimientos);
                         break;
@@ -711,15 +701,492 @@ public class VentanaJuego extends javax.swing.JFrame {
         }
     }
     
+    public boolean DeterminarCercania(int x, int y){
+        int cont = 1;
+        while (cont<=2){
+            //Hacia atras
+            boolean condicion = (x-cont>=0);
+            if(condicion){
+               if ((matrizObjetos[x-cont][y] instanceof Asesino) ||(matrizObjetos[x-cont][y] instanceof Blindado) || (matrizObjetos[x-cont][y] instanceof Explorador)){
+                  return true; 
+                }
+            }
+            //Hacia atras
+            boolean condicion2 = (x+cont<=6);
+            if(condicion2){
+               if ((matrizObjetos[x+cont][y] instanceof Asesino) ||(matrizObjetos[x+cont][y] instanceof Blindado) || (matrizObjetos[x+cont][y] instanceof Explorador)){
+                  return true; 
+                }
+            }
+            //Hacia la derecha
+            boolean condicion3 = (y+cont<=4);
+            if(condicion3){
+               if ((matrizObjetos[x][y+cont] instanceof Asesino) ||(matrizObjetos[x][y+cont] instanceof Blindado) || (matrizObjetos[x][y+cont] instanceof Explorador)){
+                  return true;  
+                }
+            }
+            //Hacia la izquierda
+            boolean condicion4 = (y-cont>=0);
+            if(condicion4){
+               if ((matrizObjetos[x][y-cont] instanceof Asesino) ||(matrizObjetos[x][y-cont] instanceof Blindado) || (matrizObjetos[x][y-cont] instanceof Explorador)){
+                  return true; 
+               }
+            }
+            cont++;
+        }
+        return false;
+    }
+    
+    public boolean DeterminarRuido(int x, int y){
+        int ruido = 0;
+        int personaje = 0;
+        boolean bandera = true; 
+         for(int i = 0; i<7;i++){
+             if(bandera){
+                 for(int j = 0; j<5;j++){
+                    if(matrizObjetos[i][j] instanceof Asesino){
+                        Asesino elemento = (Asesino) matrizObjetos[i][j];
+                        if(elemento.getArco().getRuido()>0){
+                            //System.out.println("Asesino");
+                            ruido = elemento.getArco().getRuido();
+                            personaje = 1;
+                            bandera= false;
+                            break;
+                        }
+                    }else if(matrizObjetos[i][j] instanceof Blindado){
+                        Blindado elemento = (Blindado) matrizObjetos[i][j];
+                        if(elemento.getShotgun().getRuido()>0){
+                            //System.out.println("Blindado");
+                            ruido = elemento.getShotgun().getRuido();
+                            bandera= false;
+                            personaje = 2;
+                            break;
+                        }
+                    }else if(matrizObjetos[i][j] instanceof Explorador){
+                        Explorador elemento = (Explorador) matrizObjetos[i][j];
+                        if(elemento.getSniper().getRuido()>0){
+                            //System.out.println("Explorador");
+                            ruido = elemento.getSniper().getRuido();
+                            bandera= false;
+                            personaje = 3;
+                            break;
+                        }
+                    }
+                }
+             }
+        }
+        int cont = ruido;
+        while (cont!=0){
+            //Hacia arriba
+            boolean condicion = (x-cont>=0);
+            if(condicion){
+                switch (personaje) {
+                    case 1:
+                        if (matrizObjetos[x-cont][y] instanceof Asesino){
+                            return true;
+                        }   break;
+                    case 2:
+                        if (matrizObjetos[x-cont][y] instanceof Blindado){
+                            return true;
+                        }   break;
+                    case 3:
+                        if (matrizObjetos[x-cont][y] instanceof Explorador){
+                            return true;
+                        }   break;
+                    default:
+                        break;
+                }
+            }
+            //Hacia atras
+            boolean condicion2 = (x+cont<=6);
+            if(condicion2){
+               switch (personaje) {
+                    case 1:
+                        if (matrizObjetos[x+cont][y] instanceof Asesino){
+                            return true;
+                        }   break;
+                    case 2:
+                        if (matrizObjetos[x+cont][y] instanceof Blindado){
+                            return true;
+                        }   break;
+                    case 3:
+                        if (matrizObjetos[x+cont][y] instanceof Explorador){
+                            return true;
+                        }   break;
+                    default:
+                        break;
+                }
+            }
+            //Hacia la derecha
+            boolean condicion3 = (y+cont<=4);
+            if(condicion3){
+               switch (personaje) {
+                    case 1:
+                        if (matrizObjetos[x][y+cont] instanceof Asesino){
+                            return true;
+                        }   break;
+                    case 2:
+                        if (matrizObjetos[x][y+cont] instanceof Blindado){
+                            return true;
+                        }   break;
+                    case 3:
+                        if (matrizObjetos[x][y+cont] instanceof Explorador){
+                            return true;
+                        }   break;
+                    default:
+                        break;
+                }
+            }
+            //Hacia la izquierda
+            boolean condicion4 = (y-cont>=0);
+            if(condicion4){
+               switch (personaje) {
+                    case 1:
+                        if (matrizObjetos[x][y-cont] instanceof Asesino){
+                            return true;
+                        }   break;
+                    case 2:
+                        if (matrizObjetos[x][y-cont] instanceof Blindado){
+                            return true;
+                        }   break;
+                    case 3:
+                        if (matrizObjetos[x][y-cont] instanceof Explorador){
+                            return true;
+                        }   break;
+                    default:
+                        break;
+                }
+            }
+            cont--;
+        }
+        return false;
+    }
+    
+    public boolean VerificarAtacar(int i, int j){
+        if(i-1>=0){
+            if((matrizObjetos[i-1][j] instanceof Asesino) || (matrizObjetos[i-1][j] instanceof Blindado) || (matrizObjetos[i-1][j] instanceof Explorador)){
+            return true;
+            }
+        }
+        if(i+1<=6){
+            if((matrizObjetos[i+1][j] instanceof Asesino) || (matrizObjetos[i+1][j] instanceof Blindado) || (matrizObjetos[i+1][j] instanceof Explorador)){
+            return true;
+            }
+        }
+        if(j+1<=4){
+            if((matrizObjetos[i][j+1] instanceof Asesino) || (matrizObjetos[i][j+1] instanceof Blindado) || (matrizObjetos[i][j+1] instanceof Explorador)){
+            return true;
+            }
+        }
+        if(j-1>=0){
+          if((matrizObjetos[i][j-1] instanceof Asesino) || (matrizObjetos[i][j-1] instanceof Blindado) || (matrizObjetos[i][j-1] instanceof Explorador)){
+            return true;
+            }  
+        }
+        return false;
+    }
+    
+    public boolean MoverZombieVision(int x, int y){
+        int cont = 1;
+        while (cont<=2){
+            //Hacia atras
+            boolean condicion = (x-cont>=0);
+            if(condicion){
+                if(matrizObjetos[x-1][y] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[x-1][y];
+                    if(!elemento.isObstaculizado()){
+                        if ((matrizObjetos[x-cont][y] instanceof Asesino) ||(matrizObjetos[x-cont][y] instanceof Blindado) || (matrizObjetos[x-cont][y] instanceof Explorador)){
+                            matrizObjetos[x-1][y] = matrizObjetos[x][y];
+                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                            matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        }
+                    }
+                }
+            }
+            //Hacia atras
+            boolean condicion2 = (x+cont<=6);
+            if(condicion2){
+               if(matrizObjetos[x-1][y] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[x-1][y];
+                    if(!elemento.isObstaculizado()){
+                        if ((matrizObjetos[x+cont][y] instanceof Asesino) ||(matrizObjetos[x+cont][y] instanceof Blindado) || (matrizObjetos[x+cont][y] instanceof Explorador)){
+                            matrizObjetos[x+1][y] = matrizObjetos[x][y];
+                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                            matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        }
+                    }
+                }
+            }
+            //Hacia la derecha
+            boolean condicion3 = (y+cont<=4);
+            if(condicion3){
+               if(matrizObjetos[x][y+1] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[x][y+1];
+                    if(!elemento.isObstaculizado()){
+                        if ((matrizObjetos[x][y+cont] instanceof Asesino) ||(matrizObjetos[x][y+cont] instanceof Blindado) || (matrizObjetos[x][y+cont] instanceof Explorador)){
+                            matrizObjetos[x][y+1] = matrizObjetos[x][y];
+                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                            matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        }
+                    }
+                }
+            }
+            //Hacia la izquierda
+            boolean condicion4 = (y-cont>=0);
+            if(condicion4){
+               if(matrizObjetos[x][y-1] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[x][y-1];
+                    if(!elemento.isObstaculizado()){
+                        if ((matrizObjetos[x][y-cont] instanceof Asesino) ||(matrizObjetos[x][y-cont] instanceof Blindado) || (matrizObjetos[x][y-cont] instanceof Explorador)){
+                            matrizObjetos[x][y-1] = matrizObjetos[x][y];
+                            matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                            matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        }
+                    }
+                }
+            }
+            cont++;
+        }
+        return false;
+    }
+    
+    public boolean MoverZombieRuido(int x, int y){
+        int ruido = 0;
+        int personaje = 0;
+        boolean bandera = true; 
+         for(int i = 0; i<7;i++){
+             if(bandera){
+                 for(int j = 0; j<5;j++){
+                    if(matrizObjetos[i][j] instanceof Asesino){
+                        Asesino elemento = (Asesino) matrizObjetos[i][j];
+                        if(elemento.getArco().getRuido()>0){
+                            //System.out.println("Asesino");
+                            ruido = elemento.getArco().getRuido();
+                            personaje = 1;
+                            bandera= false;
+                            break;
+                        }
+                    }else if(matrizObjetos[i][j] instanceof Blindado){
+                        Blindado elemento = (Blindado) matrizObjetos[i][j];
+                        if(elemento.getShotgun().getRuido()>0){
+                            //System.out.println("Blindado");
+                            ruido = elemento.getShotgun().getRuido();
+                            bandera= false;
+                            personaje = 2;
+                            break;
+                        }
+                    }else if(matrizObjetos[i][j] instanceof Explorador){
+                        Explorador elemento = (Explorador) matrizObjetos[i][j];
+                        if(elemento.getSniper().getRuido()>0){
+                            //System.out.println("Explorador");
+                            ruido = elemento.getSniper().getRuido();
+                            bandera= false;
+                            personaje = 3;
+                            break;
+                        }
+                    }
+                }
+             }
+        }
+        int cont = ruido;
+        while (cont!=0){
+            //Hacia arriba
+            boolean condicion = (x-cont>=0);
+            if(condicion){
+                 if(matrizObjetos[x-1][y] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[x-1][y];
+                    if(!elemento.isObstaculizado()){
+                        switch (personaje) {
+                            case 1:
+                                if (matrizObjetos[x-cont][y] instanceof Asesino){
+                                    matrizObjetos[x-1][y] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            case 2:
+                                if (matrizObjetos[x-cont][y] instanceof Blindado){
+                                    matrizObjetos[x-1][y] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            case 3:
+                                if (matrizObjetos[x-cont][y] instanceof Explorador){
+                                    matrizObjetos[x-1][y] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            //Hacia atras
+            boolean condicion2 = (x+cont<=6);
+            if(condicion2){
+                if(matrizObjetos[x+1][y] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[x+1][y];
+                    if(!elemento.isObstaculizado()){
+                        switch (personaje) {
+                            case 1:
+                                if (matrizObjetos[x+cont][y] instanceof Asesino){
+                                    matrizObjetos[x+1][y] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            case 2:
+                                if (matrizObjetos[x+cont][y] instanceof Blindado){
+                                    matrizObjetos[x+1][y] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            case 3:
+                                if (matrizObjetos[x+cont][y] instanceof Explorador){
+                                    matrizObjetos[x+1][y] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            //Hacia la derecha
+            boolean condicion3 = (y+cont<=4);
+            if(condicion3){
+                if(matrizObjetos[x][y+1] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[x][y+1];
+                    if(!elemento.isObstaculizado()){
+                       switch (personaje) {
+                            case 1:
+                                if (matrizObjetos[x][y+cont] instanceof Asesino){
+                                    matrizObjetos[x][y+1] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            case 2:
+                                if (matrizObjetos[x][y+cont] instanceof Blindado){
+                                    matrizObjetos[x][y+1] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            case 3:
+                                if (matrizObjetos[x][y+cont] instanceof Explorador){
+                                    matrizObjetos[x][y+1] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            default:
+                                break;
+                        } 
+                    }
+                }
+            }
+            //Hacia la izquierda
+            boolean condicion4 = (y-cont>=0);
+            if(condicion4){
+                if(matrizObjetos[x][y-1] instanceof Casilla){
+                    Casilla elemento = (Casilla) matrizObjetos[x][y-1];
+                    if(!elemento.isObstaculizado()){
+                        switch (personaje) {
+                            case 1:
+                                if (matrizObjetos[x][y-cont] instanceof Asesino){
+                                    matrizObjetos[x][y-1] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            case 2:
+                                if (matrizObjetos[x][y-cont] instanceof Blindado){
+                                    matrizObjetos[x][y-1] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            case 3:
+                                if (matrizObjetos[x][y-cont] instanceof Explorador){
+                                    matrizObjetos[x][y-1] = matrizObjetos[x][y];
+                                    matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }   break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            cont--;
+        }
+        return false;
+    }
+    public void AtacarPersonaje(int i, int j){
+        if(i-1>=0){
+            if((matrizObjetos[i-1][j] instanceof Asesino) || (matrizObjetos[i-1][j] instanceof Blindado) || (matrizObjetos[i-1][j] instanceof Explorador)){
+                matrizObjetos[i-1][j].setSalud(matrizObjetos[i-1][j].getSalud()-matrizObjetos[i][j].getAtaque());
+                System.out.println(matrizObjetos[i-1][j].getSalud());
+                if(matrizObjetos[i-1][j].getSalud()<=0){
+                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                    matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                    ActualizarMatriz();
+                }
+            }
+        }
+        if(i+1<=6){
+            if((matrizObjetos[i+1][j] instanceof Asesino) || (matrizObjetos[i+1][j] instanceof Blindado) || (matrizObjetos[i+1][j] instanceof Explorador)){
+                matrizObjetos[i+1][j].setSalud(matrizObjetos[i+1][j].getSalud()-matrizObjetos[i][j].getAtaque());
+                if(matrizObjetos[i+1][j].getSalud()<=0){
+                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                    matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                    ActualizarMatriz();
+                }
+            }
+        }
+        if(j+1<=4){
+            if((matrizObjetos[i][j+1] instanceof Asesino) || (matrizObjetos[i][j+1] instanceof Blindado) || (matrizObjetos[i][j+1] instanceof Explorador)){
+                matrizObjetos[i][j+1].setSalud(matrizObjetos[i][j+1].getSalud()-matrizObjetos[i][j].getAtaque());
+                if(matrizObjetos[i][j+1].getSalud()<=0){
+                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                    matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                    ActualizarMatriz();
+                }
+            }
+        }
+        if(j-1>=0){
+          if((matrizObjetos[i][j-1] instanceof Asesino) || (matrizObjetos[i][j-1] instanceof Blindado) || (matrizObjetos[i][j-1] instanceof Explorador)){
+              matrizObjetos[i][j-1].setSalud(matrizObjetos[i][j-1].getSalud()-matrizObjetos[i][j].getAtaque());
+              if(matrizObjetos[i][j-1].getSalud()<=0){
+                    matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                    matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                    ActualizarMatriz();
+                }
+          }  
+        }
+    }
+    
     public void MoverZombies() {
         for(int i = 0; i<7;i++){
             for(int j = 0; j<5;j++){
                 if((matrizObjetos[i][j] instanceof Ghoul)||(matrizObjetos[i][j] instanceof Chubby)||(matrizObjetos[i][j] instanceof Lakelurk)){
                     boolean condicion = i-1>=0;
                     if(condicion){
-                        matrizObjetos[i-1][j] = matrizObjetos[i][j];
-                        matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
-                        matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                        if(VerificarAtacar(i,j)){
+                            //Función atacar
+                            AtacarPersonaje(i,j);
+                        }else if(DeterminarCercania(i,j)){
+                            //Avanza hacia el jugador
+                            MoverZombieVision(i,j);
+                        }else if(DeterminarRuido(i,j)){
+                            //Avanza hacia el sonido
+                            MoverZombieRuido(i,j);
+                        }else{
+                            if(matrizObjetos[i-1][j] instanceof Casilla){
+                                Casilla elemento = (Casilla) matrizObjetos[i-1][j];
+                                if(!elemento.isObstaculizado()){
+                                    matrizObjetos[i-1][j] = matrizObjetos[i][j];
+                                    matrizObjetos[i][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
+                                    matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -739,7 +1206,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                     if(elemento.isObstaculizado()){
                         matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Obstaculo.jpg")));
                     }
-                    
                 }
                 else if(matrizObjetos[i][j] instanceof Asesino){
                    matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaAsesino.jpg")));
@@ -793,19 +1259,20 @@ public class VentanaJuego extends javax.swing.JFrame {
         //Personajes y Zombies Iniciales
         
         //Armas
-        Arma sniper = new Arma (4000,2,500,100);
+        Arma sniper = new Arma (4000,0,500,100);
         Arma shotgun = new Arma(4000,3,500,100);
         Arma arco = new Arma(1000, 0,200,100);
         //Casilla Obstaculizada
         matrizObjetos[3][3] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0);
+        matrizObjetos[4][1] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0);
         //Personajes
         matrizObjetos[2][2] = new Asesino(1,1000,0,0,3,0,arco); //public Asesino(int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp,Arma arco)
         matrizObjetos[1][1] = new Blindado(0, false,1,3000,0,0,2,0,shotgun);
         matrizObjetos[1][4] = new Explorador(1,500,0,0,5,0,sniper);
         //Zombies
-        matrizObjetos[6][2] = new Chubby(25,1,2500,1000,0,1,0); 
-        matrizObjetos[5][4] = new Ghoul(10,1,950,500,0,1,0);      
-        matrizObjetos[6][0] = new Lakelurk(1,1500,1500,0,1,0);
+        matrizObjetos[6][2] = new Chubby(25,1,2500,1000,0,2,0); 
+        matrizObjetos[5][4] = new Ghoul(10,1,950,500,0,2,0);      
+        matrizObjetos[6][0] = new Lakelurk(1,1500,1500,0,2,0);
         //Llamada a Actualizar
         ActualizarMatriz();
        
