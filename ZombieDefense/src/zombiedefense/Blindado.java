@@ -6,7 +6,7 @@ public class Blindado extends Personaje {
     //Atributos
     private int escudo;
     private boolean protegido;
-    private Arma shotgun = new Arma(4000,3,500,65);
+    private Arma shotgun;
  
     public Blindado(int escudo, boolean protegido, int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp, Arma shotgun) {
         super(nivel, salud, ataque, defensa, rangoDeVision, exp);

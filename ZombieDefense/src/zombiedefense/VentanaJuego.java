@@ -254,6 +254,56 @@ public class VentanaJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
         eleccionP = 3;
     }//GEN-LAST:event_jRadioButton3MouseClicked
+    //Verificar si todos estan muertos
+    public void Spawnear(){
+        boolean condicion = (turnos%2)==0;
+        if(condicion){
+            int cont = turnos/2;
+            while(cont!=0){
+                int i = (int) Math.floor(Math.random()*(6-4+1)+4);
+                int j = (int) Math.floor(Math.random()*(4-0+1)+0);
+                int tipo = (int) Math.floor(Math.random()*(3-1+1)+1);
+                System.out.println("X: "+i+" Y: "+j+" Tipo: "+tipo);
+                boolean esCasilla = (matrizObjetos[i][j] instanceof Casilla);
+                if(esCasilla){
+                    switch (tipo) {
+                    case 1:
+                        matrizObjetos[i][j] = new Ghoul(10,1,950,500,0,2,0);
+                        break;
+                    case 2:
+                        matrizObjetos[i][j] = new Chubby(25,1,2500,1000,0,2,0);
+                        break;
+                    default: 
+                        matrizObjetos[i][j] = new Lakelurk(1,1500,1500,0,2,0);
+                        break;
+                }
+                } 
+                cont--;
+            }
+        }
+        
+    }
+    
+    public boolean esPersonaje(int i,int j){
+        boolean esPersonaje = (matrizObjetos[i][j] instanceof Asesino)||(matrizObjetos[i][j] instanceof Blindado)||(matrizObjetos[i][j] instanceof Explorador);
+        if(esPersonaje){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean TodosMuertos(){
+        for(int i=0;i<7;i++){
+            for(int j=0;j<5;j++){
+                boolean esPersonaje = (matrizObjetos[i][j] instanceof Asesino)||(matrizObjetos[i][j] instanceof Blindado)||(matrizObjetos[i][j] instanceof Explorador);
+                if(esPersonaje){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     //Actualizar stats
     public void ActualizarStats(){
         for(int i=0;i<7;i++){
@@ -281,7 +331,9 @@ public class VentanaJuego extends javax.swing.JFrame {
             jLabel1.setText("Ronda " + ronda );
             MoverZombies();
             ActualizarStats();
+            Spawnear();
         }
+        
     }
     
     //Verificar si hay un obstaculo delante
@@ -1124,9 +1176,22 @@ public class VentanaJuego extends javax.swing.JFrame {
                 matrizObjetos[i-1][j].setSalud(matrizObjetos[i-1][j].getSalud()-matrizObjetos[i][j].getAtaque());
                 System.out.println(matrizObjetos[i-1][j].getSalud());
                 if(matrizObjetos[i-1][j].getSalud()<=0){
+                    if(matrizObjetos[i-1][j] instanceof Blindado){
+                        jRadioButton1.setEnabled(false);
+                    }
+                    else if(matrizObjetos[i-1][j] instanceof Explorador){
+                        jRadioButton2.setEnabled(false);
+                    }
+                    else{
+                        jRadioButton3.setEnabled(false);
+                    }
+                    
                     matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                     matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                     ActualizarMatriz();
+                    if(TodosMuertos()){
+                        TerminarTableroZombi();
+                    }
                 }
             }
         }
@@ -1134,9 +1199,21 @@ public class VentanaJuego extends javax.swing.JFrame {
             if((matrizObjetos[i+1][j] instanceof Asesino) || (matrizObjetos[i+1][j] instanceof Blindado) || (matrizObjetos[i+1][j] instanceof Explorador)){
                 matrizObjetos[i+1][j].setSalud(matrizObjetos[i+1][j].getSalud()-matrizObjetos[i][j].getAtaque());
                 if(matrizObjetos[i+1][j].getSalud()<=0){
+                    if(matrizObjetos[i-1][j] instanceof Blindado){
+                        jRadioButton1.setEnabled(false);
+                    }
+                    else if(matrizObjetos[i-1][j] instanceof Explorador){
+                        jRadioButton2.setEnabled(false);
+                    }
+                    else{
+                        jRadioButton3.setEnabled(false);
+                    }
                     matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                     matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                     ActualizarMatriz();
+                    if(TodosMuertos()){
+                        TerminarTableroZombi();
+                    }
                 }
             }
         }
@@ -1144,9 +1221,21 @@ public class VentanaJuego extends javax.swing.JFrame {
             if((matrizObjetos[i][j+1] instanceof Asesino) || (matrizObjetos[i][j+1] instanceof Blindado) || (matrizObjetos[i][j+1] instanceof Explorador)){
                 matrizObjetos[i][j+1].setSalud(matrizObjetos[i][j+1].getSalud()-matrizObjetos[i][j].getAtaque());
                 if(matrizObjetos[i][j+1].getSalud()<=0){
+                    if(matrizObjetos[i-1][j] instanceof Blindado){
+                        jRadioButton1.setEnabled(false);
+                    }
+                    else if(matrizObjetos[i-1][j] instanceof Explorador){
+                        jRadioButton2.setEnabled(false);
+                    }
+                    else{
+                        jRadioButton3.setEnabled(false);
+                    }
                     matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                     matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                     ActualizarMatriz();
+                    if(TodosMuertos()){
+                        TerminarTableroZombi();
+                    }
                 }
             }
         }
@@ -1154,9 +1243,21 @@ public class VentanaJuego extends javax.swing.JFrame {
           if((matrizObjetos[i][j-1] instanceof Asesino) || (matrizObjetos[i][j-1] instanceof Blindado) || (matrizObjetos[i][j-1] instanceof Explorador)){
               matrizObjetos[i][j-1].setSalud(matrizObjetos[i][j-1].getSalud()-matrizObjetos[i][j].getAtaque());
               if(matrizObjetos[i][j-1].getSalud()<=0){
+                  if(matrizObjetos[i-1][j] instanceof Blindado){
+                        jRadioButton1.setEnabled(false);
+                    }
+                    else if(matrizObjetos[i-1][j] instanceof Explorador){
+                        jRadioButton2.setEnabled(false);
+                    }
+                    else{
+                        jRadioButton3.setEnabled(false);
+                    }
                     matrizObjetos[i-1][j] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0);
                     matrizEtiquetas[i-1][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                     ActualizarMatriz();
+                    if(TodosMuertos()){
+                        TerminarTableroZombi();
+                    }
                 }
           }  
         }
@@ -1259,9 +1360,9 @@ public class VentanaJuego extends javax.swing.JFrame {
         //Personajes y Zombies Iniciales
         
         //Armas
-        Arma sniper = new Arma (4000,0,500,100);
-        Arma shotgun = new Arma(4000,3,500,100);
-        Arma arco = new Arma(1000, 0,200,100);
+        Arma sniper = new Arma (4000,0,500,100,false);
+        Arma shotgun = new Arma(4000,3,500,100,false);
+        Arma arco = new Arma(1000, 0,200,100,false);
         //Casilla Obstaculizada
         matrizObjetos[3][3] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0);
         matrizObjetos[4][1] = new Casilla(true, false, false, 0, 0, 0, 0, 0, 0);
@@ -1270,7 +1371,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         matrizObjetos[1][1] = new Blindado(0, false,1,3000,0,0,2,0,shotgun);
         matrizObjetos[1][4] = new Explorador(1,500,0,0,5,0,sniper);
         //Zombies
-        matrizObjetos[6][2] = new Chubby(25,1,2500,1000,0,2,0); 
+        matrizObjetos[6][2] = new Chubby(25,1,2500,1000,0,2,0);
         matrizObjetos[5][4] = new Ghoul(10,1,950,500,0,2,0);      
         matrizObjetos[6][0] = new Lakelurk(1,1500,1500,0,2,0);
         //Llamada a Actualizar
