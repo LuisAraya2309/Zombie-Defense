@@ -704,44 +704,35 @@ public class VentanaJuego extends javax.swing.JFrame {
             int xy [];
             switch (eleccionP) {
                 case 1:
+                    System.out.println("Es revenant");
                     //Dispara Revenant
                     movimientos++;
                     xy = RetornaBlindado();
+                    ActualizarTurnos(movimientos);
                     int cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
                     while(cont!=0){
+                        System.out.println("Entre al while");
                         if(xy[0]-cont>=0){
                             if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
-                                matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-matrizObjetos[xy[0]][xy[1]].getAtaque());
+                                Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                                int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()%+elemento.getShotgun().getPenetracion());
+                                System.out.println("Damage: "+damage);
+                                matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
-                                    if(matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby){
-                                        jRadioButton1.setEnabled(false);
-                                    }
-                                    else if(matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk){
-                                        jRadioButton2.setEnabled(false);
-                                    }
-                                    else{
-                                        jRadioButton3.setEnabled(false);
-                                    }
-
                                     matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                     ActualizarMatriz();
                                     }
                                 }
+                            
                         }else if(xy[1]-cont>=0){
                             if((matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
-                                matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-matrizObjetos[xy[0]][xy[1]].getAtaque());
+                                Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                                int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()%+elemento.getShotgun().getPenetracion());
+                                System.out.println("Damage: "+damage);
+                                matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
-                                    if(matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby){
-                                        jRadioButton1.setEnabled(false);
-                                    }
-                                    else if(matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk){
-                                        jRadioButton2.setEnabled(false);
-                                    }
-                                    else{
-                                        jRadioButton3.setEnabled(false);
-                                    }
-
+                                    
                                     matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                     ActualizarMatriz();
@@ -749,17 +740,12 @@ public class VentanaJuego extends javax.swing.JFrame {
                             }
                         }else if (xy[0]+cont<=6){
                             if((matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
-                                matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-matrizObjetos[xy[0]][xy[1]].getAtaque());
+                                Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                                int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()%+elemento.getShotgun().getPenetracion());
+                                System.out.println("Damage: "+damage);
+                                matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
-                                    if(matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby){
-                                        jRadioButton1.setEnabled(false);
-                                    }
-                                    else if(matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk){
-                                        jRadioButton2.setEnabled(false);
-                                    }
-                                    else{
-                                        jRadioButton3.setEnabled(false);
-                                    }
+                                    
 
                                     matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -768,23 +754,19 @@ public class VentanaJuego extends javax.swing.JFrame {
                             }
                         }else if(xy[1]+cont>=0){
                             if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
-                                matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-matrizObjetos[xy[0]][xy[1]].getAtaque());
+                                Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                                int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()%+elemento.getShotgun().getPenetracion());
+                                System.out.println("Damage: "+damage);
+                                matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
-                                    if(matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby){
-                                        jRadioButton1.setEnabled(false);
-                                    }
-                                    else if(matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk){
-                                        jRadioButton2.setEnabled(false);
-                                    }
-                                    else{
-                                        jRadioButton3.setEnabled(false);
-                                    }
+                                    
                                     matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                     ActualizarMatriz();
                                 }
                             }
                         }
+                        
                         cont--;
                     }
                     
