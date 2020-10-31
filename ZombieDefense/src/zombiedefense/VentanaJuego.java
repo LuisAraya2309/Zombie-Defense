@@ -283,8 +283,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                 int j = (int) Math.floor(Math.random()*(4-0+1)+0);
                 int tipo = (int) Math.floor(Math.random()*(3-1+1)+1);
                 System.out.println("X: "+i+" Y: "+j+" Tipo: "+tipo);
-                boolean esCasilla = (matrizObjetos[i][j] instanceof Casilla);
-                if(esCasilla){
+                boolean spawnInvalido = (esPersonaje(i,j))||(esZombie(i,j))||(esObstaculo(i,j)); 
+                if(!spawnInvalido){
                     switch (tipo) {
                     case 1:
                         matrizObjetos[i][j] = new Ghoul(10,1,950,500,0,2,0,null);
@@ -301,6 +301,24 @@ public class VentanaJuego extends javax.swing.JFrame {
             }
         }
         
+    }
+    public boolean esObstaculo(int i, int j){
+        Casilla elemento = (Casilla)matrizObjetos[i][j];
+        if(elemento.isObstaculizado()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean esZombie(int i, int j){
+        boolean esZombie = (matrizObjetos[i][j] instanceof Ghoul)||(matrizObjetos[i][j] instanceof Chubby)||(matrizObjetos[i][j] instanceof Lakelurk);
+        if(esZombie){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     public boolean esPersonaje(int i,int j){
