@@ -847,7 +847,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -861,7 +861,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -875,7 +875,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -911,7 +911,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -925,7 +925,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -940,7 +940,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -976,7 +976,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -990,7 +990,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -1005,7 +1005,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
                                     Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -1018,9 +1018,87 @@ public class VentanaJuego extends javax.swing.JFrame {
             }ActualizarMatriz();
         }
     }//GEN-LAST:event_DispararMouseClicked
-
+    private int TipoLoot(int x,int y){
+        if(matrizObjetos[x][y].getLoot() instanceof Botiquin){
+            return 1;
+        }
+        else if(matrizObjetos[x][y].getLoot() instanceof Explosivo){
+            return 2;
+        }
+        else{
+            return 3;
+        }
+    }
     private void jLabelItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelItemMouseClicked
-        
+        if(eleccionP==0){
+            JOptionPane.showMessageDialog(null, "Debe de seleccionar el personaje que va a utilizar en esta ronda.");
+        }
+        else{
+            int xy[];
+            switch(eleccionP){
+                case 1:
+                    xy = RetornaBlindado();
+                    Items loot = matrizObjetos[xy[0]][xy[1]].getLoot();
+                    if(loot instanceof Botiquin){
+                        Botiquin elemento = (Botiquin)loot;
+                        matrizObjetos[xy[0]][xy[1]].setSalud(matrizObjetos[xy[0]][xy[1]].getSalud()+elemento.getCuracion());
+                    }
+                    else if(loot instanceof Explosivo){
+                        Explosivo elemento = (Explosivo)loot;
+                        int radioExplosivo = elemento.getRangoExplosion();
+                    }
+                    else{
+                        Potenciador elemento = (Potenciador)loot;
+                        int nivelExtra = elemento.getNivel();
+                        int damageExtra = elemento.getDaño();
+                        ActualizarStats();
+                        Blindado personaje = (Blindado) matrizObjetos[xy[0]][xy[1]];
+                        personaje.getShotgun().setDaño(personaje.getShotgun().getDaño()+damageExtra);
+                    }
+                    break;
+                case 2:
+                    xy = RetornaExplorador();
+                    Items loot = matrizObjetos[xy[0]][xy[1]].getLoot();
+                    if(loot instanceof Botiquin){
+                        Botiquin elemento = (Botiquin)loot;
+                        matrizObjetos[xy[0]][xy[1]].setSalud(matrizObjetos[xy[0]][xy[1]].getSalud()+elemento.getCuracion());
+                    }
+                    else if(loot instanceof Explosivo){
+                        Explosivo elemento = (Explosivo)loot;
+                        int radioExplosivo = elemento.getRangoExplosion();
+                    }
+                    else{
+                        Potenciador elemento = (Potenciador)loot;
+                        int nivelExtra = elemento.getNivel();
+                        int damageExtra = elemento.getDaño();
+                        ActualizarStats();
+                        Explorador personaje = (Explorador) matrizObjetos[xy[0]][xy[1]];
+                        personaje.getSniper().setDaño(personaje.getSniper().getDaño()+damageExtra);
+                    }
+                    break;
+                default:
+                    xy = RetornaAsesino();
+                    Items loot = matrizObjetos[xy[0]][xy[1]].getLoot();
+                    if(loot instanceof Botiquin){
+                        Botiquin elemento = (Botiquin)loot;
+                        matrizObjetos[xy[0]][xy[1]].setSalud(matrizObjetos[xy[0]][xy[1]].getSalud()+elemento.getCuracion());
+                    }
+                    else if(loot instanceof Explosivo){
+                        Explosivo elemento = (Explosivo)loot;
+                        int radioExplosivo = elemento.getRangoExplosion();
+                    }
+                    else{
+                        Potenciador elemento = (Potenciador)loot;
+                        int nivelExtra = elemento.getNivel();
+                        int damageExtra = elemento.getDaño();
+                        ActualizarStats();
+                        Asesino personaje = (Asesino) matrizObjetos[xy[0]][xy[1]];
+                        personaje.getArco().setDaño(personaje.getArco().getDaño()+damageExtra);
+                    }
+                    break;
+                    
+            }
+        }
     }//GEN-LAST:event_jLabelItemMouseClicked
 
     //Metodos
