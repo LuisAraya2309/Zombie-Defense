@@ -347,16 +347,16 @@ public class VentanaJuego extends javax.swing.JFrame {
             for(int j=0;j<5;j++){
                 boolean condition = matrizObjetos[i][j] instanceof Casilla;
                 if(!condition ){
-                    boolean esPersonaje = (matrizObjetos[i][j] instanceof Asesino)||(matrizObjetos[i][j] instanceof Blindado)||(matrizObjetos[i][j] instanceof Explorador);
+                    boolean esPersonaje = (esPersonaje(i,j));
                     if(esPersonaje){
                         matrizObjetos[i][j].setNivel(matrizObjetos[i][j].getNivel()+1);
                         matrizObjetos[i][j].setAtaque(turnos*50);
                         matrizObjetos[i][j].setSalud(matrizObjetos[i][j].getSalud()+100);
                     }
-                    /*else{
-                        matrizObjetos[i][j].setAtaque(matrizObjetos[i][j].getAtaque()+turnos*30);
+                    else if(matrizObjetos[i][j] instanceof Ghoul){
+                        matrizObjetos[i][j].setAtaque(matrizObjetos[i][j].getAtaque()+50);
                         matrizObjetos[i][j].setSalud(matrizObjetos[i][j].getSalud()+50);
-                    }*/
+                    }
                 }
             }
         }
@@ -705,30 +705,53 @@ public class VentanaJuego extends javax.swing.JFrame {
             int xy[];
             switch (eleccionP) {
                 case 1:
+                    //Habilidad especial de Revenant
                     xy = RetornaBlindado();      
                     int nivel = matrizObjetos[xy[0]][xy[1]].getNivel();
                     if(nivel>=4){
-                        System.out.println("Ya se puede utiliazr");
+                        //Escudo extra
+                        Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                        elemento.setSalud(elemento.getSalud()+500);
+                        //La vida se ha aumentado 500 puntos
+                        jLabel1.setText("+500pts de salud");
                     }else{
                         JOptionPane.showMessageDialog(null,"Deberas de sobrevivir más rondas si deseas utilizar la habilidad especial");
                     }
-                    //Habilidad especial de Revenant
                     break;
                 case 2:
+                    //Habilidad especial de Scout
                     xy = RetornaExplorador();      
                     nivel = matrizObjetos[xy[0]][xy[1]].getNivel();
                     if(nivel>=4){
-                        System.out.println("Ya se puede utiliazr");
+                        // Matar una fila entera
+                        for(int i = xy[0]; i<7; i++){
+                            if(esZombie(i,xy[1])){
+                                matrizObjetos[i][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                matrizEtiquetas[i][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                ActualizarMatriz();
+                            }
+                        }
+                        
                     }else{
                         JOptionPane.showMessageDialog(null,"Deberas de sobrevivir más rondas si deseas utilizar la habilidad especial");
                     }
-                    //Habilidad especial de Scout
                     break;
                 case 3:
                     xy = RetornaAsesino();      
                     nivel = matrizObjetos[xy[0]][xy[1]].getNivel();
                     if(nivel>=4){
-                        System.out.println("Ya se puede utiliazr");
+                        System.out.println("Ya se puede utilizar");
+                        //Retoceder a la base
+                        for(int i = 0; i<=4; i++){
+                            if(esZombie(1,i)){
+                               matrizObjetos[1][i] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                               matrizEtiquetas[1][i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                               matrizObjetos[1][i] = matrizObjetos[xy[0]][xy[1]];
+                               matrizObjetos[xy[0]][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                               matrizEtiquetas[xy[0]][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                               ActualizarMatriz(); 
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Deberas de sobrevivir más rondas si deseas utilizar la habilidad especial");
                     }
@@ -999,16 +1022,20 @@ public class VentanaJuego extends javax.swing.JFrame {
     public void TerminarTableroZombi(){
         for(int i=0;i<7;i++){
             for(int j=0;j<5;j++){
+                matrizObjetos[i][j] = new Casilla (false, false, false, 0, 0, 0, 0, 0, 0,null);
                 matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZombieGane.png")));
+                ActualizarMatriz();
             }
         }
     }
     
     public void TerminarTableroHeroe(){
-        if(turnos >= 12 ){
+        if(turnos == 12 ){
             for(int i=0;i<7;i++){
                 for(int j=0;j<5;j++){
+                    matrizObjetos[i][j] = new Casilla (false, false, false, 0, 0, 0, 0, 0, 0,null);
                     matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/HeroeGane.jpg")));
+                    ActualizarMatriz();
                 }
             }
         }
@@ -1435,7 +1462,6 @@ public class VentanaJuego extends javax.swing.JFrame {
         if(i-1>=0){
             if((matrizObjetos[i-1][j] instanceof Asesino) || (matrizObjetos[i-1][j] instanceof Blindado) || (matrizObjetos[i-1][j] instanceof Explorador)){
                 matrizObjetos[i-1][j].setSalud(matrizObjetos[i-1][j].getSalud()-matrizObjetos[i][j].getAtaque());
-                System.out.println(matrizObjetos[i-1][j].getSalud());
                 if(matrizObjetos[i-1][j].getSalud()<=0){
                     if(matrizObjetos[i-1][j] instanceof Blindado){
                         jRadioButton1.setEnabled(false);
@@ -1637,7 +1663,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         //Personajes
         matrizObjetos[2][2] = new Asesino(1,1000,0,0,3,0,null,arco);
         matrizObjetos[1][1] = new Blindado(0, false,1,3000,0,0,2,0,null,shotgun);
-        matrizObjetos[1][4] = new Explorador(1,500,0,0,5,0,null,sniper);
+        matrizObjetos[1][4] = new Explorador(1,750,0,0,5,0,null,sniper);
         //Zombies
         matrizObjetos[6][2] = new Chubby(25,1,2500,1000,0,2,0,null);
         matrizObjetos[5][4] = new Ghoul(10,1,950,500,0,2,0,null);      
