@@ -468,8 +468,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                 case 1:
                     int[] xyB = RetornaBlindado();
                     if(PoderAvanzarAtras(xyB[0],xyB[1])){
-                        if(matrizObjetos[xyB[0]][xyB[1]+1].getLoot()!=null){
-                            matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]][xyB[1]+1].getLoot());
+                        if(matrizObjetos[xyB[0]-1][xyB[1]].getLoot()!=null){
+                            matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]-1][xyB[1]].getLoot());
                         }
                         matrizObjetos[xyB[0]-1][xyB[1]] = matrizObjetos[xyB[0]][xyB[1]];
                         matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
@@ -487,6 +487,9 @@ public class VentanaJuego extends javax.swing.JFrame {
                 case 2:
                     int[] xyE = RetornaExplorador();
                     if(PoderAvanzarAtras(xyE[0],xyE[1])){
+                        if(matrizObjetos[xyE[0]-1][xyE[1]].getLoot()!=null){
+                            matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]-1][xyE[1]].getLoot());
+                        }
                         matrizObjetos[xyE[0]-1][xyE[1]] = matrizObjetos[xyE[0]][xyE[1]];
                         matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -503,6 +506,9 @@ public class VentanaJuego extends javax.swing.JFrame {
                 case 3:
                     int[] xyA = RetornaAsesino();
                     if(PoderAvanzarAtras(xyA[0],xyA[1])){
+                        if(matrizObjetos[xyA[0]-1][xyA[1]].getLoot()!=null){
+                            matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]-1][xyA[1]].getLoot());
+                        }
                         matrizObjetos[xyA[0]-1][xyA[1]] = matrizObjetos[xyA[0]][xyA[1]];
                         matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -665,6 +671,9 @@ public class VentanaJuego extends javax.swing.JFrame {
                 case 1:
                     int[] xyB = RetornaBlindado();
                     if(PoderAvanzarIzquierda(xyB[0],xyB[1])){
+                        if(matrizObjetos[xyB[0]][xyB[1]-1].getLoot()!=null){
+                            matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]][xyB[1]-1].getLoot());
+                        }
                         matrizObjetos[xyB[0]][xyB[1]-1] = matrizObjetos[xyB[0]][xyB[1]];
                         matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -681,6 +690,9 @@ public class VentanaJuego extends javax.swing.JFrame {
                 case 2:
                     int[] xyE = RetornaExplorador();
                     if(PoderAvanzarIzquierda(xyE[0],xyE[1])){
+                        if(matrizObjetos[xyE[0]][xyE[1]-1].getLoot()!=null){
+                            matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]][xyE[1]-1].getLoot());
+                        }
                         matrizObjetos[xyE[0]][xyE[1]-1] = matrizObjetos[xyE[0]][xyE[1]];
                         matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -697,6 +709,9 @@ public class VentanaJuego extends javax.swing.JFrame {
                 case 3:
                     int[] xyA = RetornaAsesino();
                     if(PoderAvanzarIzquierda(xyA[0],xyA[1])){
+                        if(matrizObjetos[xyA[0]][xyA[1]-1].getLoot()!=null){
+                            matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]][xyA[1]-1].getLoot());
+                        }
                         matrizObjetos[xyA[0]][xyA[1]-1] = matrizObjetos[xyA[0]][xyA[1]];
                         matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                         matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
