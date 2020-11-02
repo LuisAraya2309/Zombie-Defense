@@ -56,8 +56,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         HabilidadEspecial = new javax.swing.JLabel();
         Disparar = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelItem = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -217,19 +216,13 @@ public class VentanaJuego extends javax.swing.JFrame {
                 DispararMouseClicked(evt);
             }
         });
-        jPanel1.add(Disparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 70, 40));
+        jPanel1.add(Disparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 130, 40));
 
-        jLabel3.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel3.setText("Curación");
-        jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, -1, 40));
-
-        jLabel4.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel4.setText("Ataque de Cuerpo");
-        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 130, 40));
+        jLabelItem.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
+        jLabelItem.setForeground(new java.awt.Color(51, 0, 0));
+        jLabelItem.setText("Utilizar Item");
+        jLabelItem.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
+        jPanel1.add(jLabelItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1709,9 +1702,8 @@ public class VentanaJuego extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelBotonSalir;
+    private javax.swing.JLabel jLabelItem;
     private javax.swing.JLabel jLabelMensaje1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
