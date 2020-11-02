@@ -8,12 +8,14 @@ public class Casilla extends Personaje{
     private boolean obstaculizado;
     private boolean cubierto;
     private boolean esEntrada;
+    private Items item;
     
     public Casilla(boolean obstaculizado, boolean cubierto, boolean esEntrada, int nivel, int salud, int ataque, int defensa, int rangoDeVision, int exp, Items loot) {
         super(nivel, salud, ataque, defensa, rangoDeVision, exp, loot);
         this.obstaculizado = obstaculizado;
         this.cubierto = cubierto;
         this.esEntrada = esEntrada;
+        this.item = loot;
     }
     
     //Sets y Gets
@@ -39,5 +41,12 @@ public class Casilla extends Personaje{
 
     public void setEsEntrada(boolean esEntrada) {
         this.esEntrada = esEntrada;
+    }
+     public Items getItem() {
+        return item;
+    }
+
+    public void setItem(Items item) {
+        this.item = item;
     }
 }

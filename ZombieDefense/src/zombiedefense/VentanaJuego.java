@@ -726,7 +726,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         // Matar una fila entera
                         for(int i = xy[0]; i<7; i++){
                             if(esZombie(i,xy[1])){
-                                matrizObjetos[i][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                Items item = CrearItem();
+                                matrizObjetos[i][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                 matrizEtiquetas[i][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                 ActualizarMatriz();
                             }
@@ -744,7 +745,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                         //Retoceder a la base
                         for(int i = 0; i<=4; i++){
                             if(esZombie(1,i)){
-                               matrizObjetos[1][i] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                Items item = CrearItem();
+                               matrizObjetos[1][i] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                matrizEtiquetas[1][i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                matrizObjetos[1][i] = matrizObjetos[xy[0]][xy[1]];
                                matrizObjetos[xy[0]][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
@@ -760,7 +762,21 @@ public class VentanaJuego extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_HabilidadEspecialMouseClicked
-
+    private Items CrearItem(){
+        int tipo = (int) Math.floor(Math.random()*(3-1+1)+1);
+        switch(tipo){
+            case 1:
+                Botiquin botiquin = new Botiquin(500,false);
+                return botiquin;
+            case 2:
+                Explosivo explosivo = new Explosivo(2,false);
+                return explosivo;
+            default:
+                Potenciador potenciador = new Potenciador(1,200,false);
+                return potenciador;
+             
+        }
+    }
     private void DispararMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DispararMouseClicked
         if(eleccionP == 0){
             JOptionPane.showMessageDialog(null, "Debe de seleccionar el personaje que va a utilizar en esta ronda.");
@@ -781,7 +797,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
                                 matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -795,8 +812,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
-                                    
-                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -809,7 +826,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
-                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -822,8 +840,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
-                                    
-                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -844,7 +862,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
                                 matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -857,7 +876,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
-                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -870,7 +890,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
-                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -884,8 +905,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
-                                    
-                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -906,7 +927,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
                                 matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -919,7 +941,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
-                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -932,7 +955,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
-                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
@@ -946,8 +970,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
-                                    
-                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                    Items item = CrearItem();
+                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
                                     matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
                                     ActualizarMatriz();
                                     break;
