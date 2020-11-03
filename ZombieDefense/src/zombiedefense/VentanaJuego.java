@@ -21,7 +21,9 @@ public class VentanaJuego extends javax.swing.JFrame {
     public int movimientos = 0;
     public int eleccionP = 0;
     public int ronda = 12;
-    
+    public int HabilidadB = 3;
+    public int HabilidadE = 3;
+    public int HabilidadA = 3;
     //Cpnstructor
     public VentanaJuego() {
         initComponents();
@@ -56,7 +58,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         HabilidadEspecial = new javax.swing.JLabel();
         Disparar = new javax.swing.JLabel();
-        jLabelItem = new javax.swing.JLabel();
+        Item = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -89,11 +91,11 @@ public class VentanaJuego extends javax.swing.JFrame {
         tablero.getContentPane().setLayout(tableroLayout);
         tableroLayout.setHorizontalGroup(
             tableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1062, Short.MAX_VALUE)
+            .addGap(0, 1021, Short.MAX_VALUE)
         );
         tableroLayout.setVerticalGroup(
             tableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 671, Short.MAX_VALUE)
+            .addGap(0, 675, Short.MAX_VALUE)
         );
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -101,15 +103,15 @@ public class VentanaJuego extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 204, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 0));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 160, 53));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 180, 53));
 
         jLabelMensaje1.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         jLabelMensaje1.setForeground(new java.awt.Color(51, 0, 0));
         jLabelMensaje1.setText("Escoja un personaje");
         jLabelMensaje1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
-        jPanel1.add(jLabelMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 40));
+        jPanel1.add(jLabelMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 40));
 
         BotonIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaIzq.jpg"))); // NOI18N
         BotonIzquierda.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -117,7 +119,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 BotonIzquierdaMouseClicked(evt);
             }
         });
-        jPanel1.add(BotonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 80, 50));
+        jPanel1.add(BotonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 50));
 
         BotonAvanzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaArriba (1).jpg"))); // NOI18N
         BotonAvanzar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -125,7 +127,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 BotonAvanzarMouseClicked(evt);
             }
         });
-        jPanel1.add(BotonAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        jPanel1.add(BotonAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         BotonDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaDerecha.jpg"))); // NOI18N
         BotonDerecha.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,7 +135,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 BotonDerechaMouseClicked(evt);
             }
         });
-        jPanel1.add(BotonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 80, 50));
+        jPanel1.add(BotonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 80, 50));
 
         BotonRetroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FlechaAbajo.jpg"))); // NOI18N
         BotonRetroceder.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,7 +143,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 BotonRetrocederMouseClicked(evt);
             }
         });
-        jPanel1.add(BotonRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        jPanel1.add(BotonRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
 
         jLabelBotonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonSalirJ.png"))); // NOI18N
         jLabelBotonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,7 +151,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 jLabelBotonSalirMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelBotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, 130, 50));
+        jPanel1.add(jLabelBotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 130, 50));
 
         jRadioButton1.setBackground(new java.awt.Color(51, 0, 0));
         buttonGroup1.add(jRadioButton1);
@@ -161,7 +163,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 jRadioButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, 30));
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 80, 30));
 
         jRadioButton2.setBackground(new java.awt.Color(51, 0, 0));
         buttonGroup1.add(jRadioButton2);
@@ -177,7 +179,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 jRadioButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 80, 30));
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 80, 30));
 
         jRadioButton3.setBackground(new java.awt.Color(51, 0, 0));
         buttonGroup1.add(jRadioButton3);
@@ -188,13 +190,13 @@ public class VentanaJuego extends javax.swing.JFrame {
                 jRadioButton3MouseClicked(evt);
             }
         });
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 80, 30));
+        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 0, 0));
         jLabel2.setText("Turnos Restantes 12");
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(51, 0, 0)));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 150, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 150, -1));
 
         HabilidadEspecial.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         HabilidadEspecial.setForeground(new java.awt.Color(51, 0, 0));
@@ -205,7 +207,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 HabilidadEspecialMouseClicked(evt);
             }
         });
-        jPanel1.add(HabilidadEspecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 130, 40));
+        jPanel1.add(HabilidadEspecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 130, 40));
 
         Disparar.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         Disparar.setForeground(new java.awt.Color(51, 0, 0));
@@ -216,27 +218,29 @@ public class VentanaJuego extends javax.swing.JFrame {
                 DispararMouseClicked(evt);
             }
         });
-        jPanel1.add(Disparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 130, 40));
+        jPanel1.add(Disparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 130, 40));
 
-        jLabelItem.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
-        jLabelItem.setForeground(new java.awt.Color(51, 0, 0));
-        jLabelItem.setText("Utilizar Item");
-        jLabelItem.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
-        jLabelItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        Item.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
+        Item.setForeground(new java.awt.Color(51, 0, 0));
+        Item.setText("Utilizar Item");
+        Item.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 0)));
+        Item.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelItemMouseClicked(evt);
+                ItemMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 130, 40));
+        jPanel1.add(Item, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tablero))
+                .addComponent(tablero)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,6 +343,19 @@ public class VentanaJuego extends javax.swing.JFrame {
         }
         return true;
     }
+    
+    
+    public boolean ZombiesMuertos(){
+        for(int i=0;i<7;i++){
+            for(int j=0;j<5;j++){
+                boolean esPersonaje = (matrizObjetos[i][j] instanceof Chubby)||(matrizObjetos[i][j] instanceof Ghoul)||(matrizObjetos[i][j] instanceof Lakelurk);
+                if(esPersonaje){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     //Actualizar stats
     public void ActualizarStats(){
         for(int i=0;i<7;i++){
@@ -361,15 +378,18 @@ public class VentanaJuego extends javax.swing.JFrame {
     }
     //Actualizar turnos
     public void ActualizarTurnos(int movimientos){
-        if(movimientos%3==0){
-            ronda--;
-            turnos++;
-            jLabel2.setText("Turnos Restantes " + ronda );
+        if(turnos<12){
+            if(movimientos%3==0){
+                ronda--;
+                turnos++;
+                jLabel2.setText("Turnos Restantes " + ronda );
+                MoverZombies();
+                ActualizarStats();
+                Spawnear();
+            }
+        }else{
             MoverZombies();
-            ActualizarStats();
-            Spawnear();
         }
-        
     }
     
     //Verificar si hay un obstaculo delante
@@ -744,10 +764,14 @@ public class VentanaJuego extends javax.swing.JFrame {
                     int nivel = matrizObjetos[xy[0]][xy[1]].getNivel();
                     if(nivel>=4){
                         //Escudo extra
-                        Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
-                        elemento.setSalud(elemento.getSalud()+500);
-                        //La vida se ha aumentado 500 puntos
-                        jLabel1.setText("+500pts de salud");
+                        if(HabilidadB!=0){
+                            Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                            elemento.setSalud(elemento.getSalud()+500);
+                            //La vida se ha aumentado 500 puntos
+                            jLabel1.setText("+500pts de salud");
+                        }else{
+                            JOptionPane.showMessageDialog(null,"No tienes energía para seguir usando esta habilidad ");
+                        }HabilidadB--;
                     }else{
                         JOptionPane.showMessageDialog(null,"Deberas de sobrevivir más rondas si deseas utilizar la habilidad especial");
                     }
@@ -758,15 +782,18 @@ public class VentanaJuego extends javax.swing.JFrame {
                     nivel = matrizObjetos[xy[0]][xy[1]].getNivel();
                     if(nivel>=4){
                         // Matar una fila entera
-                        for(int i = xy[0]; i<7; i++){
-                            if(esZombie(i,xy[1])){
-                                Items item = CrearItem();
-                                matrizObjetos[i][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                matrizEtiquetas[i][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                ActualizarMatriz();
-                            }
-                        }
-                        
+                        if(HabilidadE!=0){
+                          for(int i = xy[0]; i<7; i++){
+                                if(esZombie(i,xy[1])){
+                                    Items item = CrearItem();
+                                    matrizObjetos[i][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                    matrizEtiquetas[i][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                    ActualizarMatriz();
+                                }
+                            }  
+                        }else{
+                            JOptionPane.showMessageDialog(null,"No tienes energía para seguir usando esta habilidad ");
+                        }HabilidadE--;                    
                     }else{
                         JOptionPane.showMessageDialog(null,"Deberas de sobrevivir más rondas si deseas utilizar la habilidad especial");
                     }
@@ -775,18 +802,25 @@ public class VentanaJuego extends javax.swing.JFrame {
                     xy = RetornaAsesino();      
                     nivel = matrizObjetos[xy[0]][xy[1]].getNivel();
                     if(nivel>=4){
-                        System.out.println("Ya se puede utilizar");
-                        //Retoceder a la base
-                        for(int i = 0; i<=4; i++){
-                            if(esZombie(1,i)){
-                                Items item = CrearItem();
-                               matrizObjetos[1][i] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                               matrizEtiquetas[1][i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                               matrizObjetos[1][i] = matrizObjetos[xy[0]][xy[1]];
-                               matrizObjetos[xy[0]][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                               matrizEtiquetas[xy[0]][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                               ActualizarMatriz(); 
+                        if(HabilidadA!=0){
+                             //Retoceder a la base
+                            boolean flag = false;
+                            for(int i = 0; i<=4; i++){
+                                if(esZombie(1,i)){
+                                   flag = true;
+                                   Items item = CrearItem();
+                                   matrizObjetos[1][i] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                   matrizEtiquetas[1][i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                   matrizObjetos[1][i] = matrizObjetos[xy[0]][xy[1]];
+                                   matrizObjetos[xy[0]][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                                   matrizEtiquetas[xy[0]][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                                   ActualizarMatriz();
+                                   HabilidadA--;
+                                   break;
+                                }
                             }
+                        }else{
+                            JOptionPane.showMessageDialog(null,"No tienes energía para seguir usando esta habilidad ");
                         }
                     }else{
                         JOptionPane.showMessageDialog(null,"Deberas de sobrevivir más rondas si deseas utilizar la habilidad especial");
@@ -801,14 +835,16 @@ public class VentanaJuego extends javax.swing.JFrame {
         switch(tipo){
             case 1:
                 Botiquin botiquin = new Botiquin(500,false);
+                jLabel1.setText("Curación en el campo");
                 return botiquin;
             case 2:
-                Explosivo explosivo = new Explosivo(2,false);
+                Explosivo explosivo = new Explosivo(2,750,false);
+                jLabel1.setText("Granadas cerca");
                 return explosivo;
             default:
                 Potenciador potenciador = new Potenciador(1,200,false);
-                return potenciador;
-             
+                jLabel1.setText("Potenciador ve por él!");
+                return potenciador;   
         }
     }
     private void DispararMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DispararMouseClicked
@@ -830,6 +866,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
                                 matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
+                                jLabel1.setText("Revenant inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -845,6 +882,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
+                                jLabel1.setText("Revenant inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -859,6 +897,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
+                                jLabel1.setText("Revenant inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -873,6 +912,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
+                                jLabel1.setText("Revenant inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -882,7 +922,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 }
                             }
                         }
-                        
                         cont--;
                     }
                     break;
@@ -895,6 +934,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
                                 matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
+                                jLabel1.setText("Scout inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -909,6 +949,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
+                                jLabel1.setText("Scout inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -923,6 +964,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
+                                jLabel1.setText("Scout inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -938,6 +980,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
+                                jLabel1.setText("Scout inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -960,6 +1003,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
                                 matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
+                                jLabel1.setText("Dheylo inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -974,6 +1018,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
+                                jLabel1.setText("Dheylo inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -988,6 +1033,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
                                 matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
+                                jLabel1.setText("Dheylo inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -1003,6 +1049,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
                                 int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
                                 matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
+                                jLabel1.setText("Dheylo inflingió "+damage+" de daño");
                                 if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
                                     Items item = CrearItem();
                                     matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
@@ -1029,7 +1076,7 @@ public class VentanaJuego extends javax.swing.JFrame {
             return 3;
         }
     }
-    private void jLabelItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelItemMouseClicked
+    private void ItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemMouseClicked
         if(eleccionP==0){
             JOptionPane.showMessageDialog(null, "Debe de seleccionar el personaje que va a utilizar en esta ronda.");
         }
@@ -1042,10 +1089,61 @@ public class VentanaJuego extends javax.swing.JFrame {
                     if(loot instanceof Botiquin){
                         Botiquin elemento = (Botiquin)loot;
                         matrizObjetos[xy[0]][xy[1]].setSalud(matrizObjetos[xy[0]][xy[1]].getSalud()+elemento.getCuracion());
+                        jLabel1.setText("Salud aumentada");
                     }
                     else if(loot instanceof Explosivo){
+                        xy = RetornaBlindado();
                         Explosivo elemento = (Explosivo)loot;
-                        int radioExplosivo = elemento.getRangoExplosion();
+                        int radioExplosivo = 1;
+                        int cont = elemento.getRangoExplosion();
+                        while(radioExplosivo<=cont){
+                            if(xy[0]-radioExplosivo>=0){
+                                if(esZombie(xy[0]-radioExplosivo, xy[1])){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]-radioExplosivo][xy[1]].setSalud(matrizObjetos[xy[0]-radioExplosivo][xy[1]].getSalud()- elemento.getDaño());
+                                    if(matrizObjetos[xy[0]-radioExplosivo][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]-radioExplosivo][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]-radioExplosivo][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if(xy[1]-radioExplosivo>=0){
+                                if(esZombie(xy[0], xy[1]-radioExplosivo)){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]][xy[1]-radioExplosivo].setSalud(matrizObjetos[xy[0]][xy[1]-radioExplosivo].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]][xy[1]-radioExplosivo].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]-radioExplosivo] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]-radioExplosivo].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if (xy[0]+radioExplosivo<=6){
+                                if(esZombie(xy[0]+radioExplosivo, xy[1])){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]+radioExplosivo][xy[1]].setSalud(matrizObjetos[xy[0]+radioExplosivo][xy[1]].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]+radioExplosivo][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]+radioExplosivo][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]+radioExplosivo][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if(xy[1]+radioExplosivo<=4){
+                                if(esZombie(xy[0], xy[1]+radioExplosivo)){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]][xy[1]+radioExplosivo].setSalud(matrizObjetos[xy[0]][xy[1]+radioExplosivo].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]][xy[1]+radioExplosivo].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]+radioExplosivo] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]+radioExplosivo].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }
+                         radioExplosivo++;
+                        } jLabel1.setText("Explosivo desplegado");
                     }
                     else{
                         Potenciador elemento = (Potenciador)loot;
@@ -1054,18 +1152,69 @@ public class VentanaJuego extends javax.swing.JFrame {
                         ActualizarStats();
                         Blindado personaje = (Blindado) matrizObjetos[xy[0]][xy[1]];
                         personaje.getShotgun().setDaño(personaje.getShotgun().getDaño()+damageExtra);
+                        jLabel1.setText("Soldado listo!");
                     }
                     break;
                 case 2:
                     xy = RetornaExplorador();
-                    Items loot = matrizObjetos[xy[0]][xy[1]].getLoot();
+                    loot = matrizObjetos[xy[0]][xy[1]].getLoot();
                     if(loot instanceof Botiquin){
                         Botiquin elemento = (Botiquin)loot;
                         matrizObjetos[xy[0]][xy[1]].setSalud(matrizObjetos[xy[0]][xy[1]].getSalud()+elemento.getCuracion());
+                        jLabel1.setText("Salud aumentada");
                     }
                     else if(loot instanceof Explosivo){
                         Explosivo elemento = (Explosivo)loot;
-                        int radioExplosivo = elemento.getRangoExplosion();
+                        int radioExplosivo = 1;
+                        int cont = elemento.getRangoExplosion();
+                        while(radioExplosivo<=cont){
+                            if(xy[0]-radioExplosivo>=0){
+                                if(esZombie(xy[0]-radioExplosivo, xy[1])){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]-radioExplosivo][xy[1]].setSalud(matrizObjetos[xy[0]-radioExplosivo][xy[1]].getSalud()- elemento.getDaño());
+                                    if(matrizObjetos[xy[0]-radioExplosivo][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]-radioExplosivo][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]-radioExplosivo][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if(xy[1]-radioExplosivo>=0){
+                                if(esZombie(xy[0], xy[1]-radioExplosivo)){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]][xy[1]-radioExplosivo].setSalud(matrizObjetos[xy[0]][xy[1]-radioExplosivo].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]][xy[1]-radioExplosivo].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]-radioExplosivo] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]-radioExplosivo].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if (xy[0]+radioExplosivo<=6){
+                                if(esZombie(xy[0]+radioExplosivo, xy[1])){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]+radioExplosivo][xy[1]].setSalud(matrizObjetos[xy[0]+radioExplosivo][xy[1]].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]+radioExplosivo][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]+radioExplosivo][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]+radioExplosivo][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if(xy[1]+radioExplosivo<=4){
+                                if(esZombie(xy[0], xy[1]+radioExplosivo)){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]][xy[1]+radioExplosivo].setSalud(matrizObjetos[xy[0]][xy[1]+radioExplosivo].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]][xy[1]+radioExplosivo].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]+radioExplosivo] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]+radioExplosivo].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }
+                         radioExplosivo++;
+                        } jLabel1.setText("Explosivo desplegado");
                     }
                     else{
                         Potenciador elemento = (Potenciador)loot;
@@ -1074,18 +1223,69 @@ public class VentanaJuego extends javax.swing.JFrame {
                         ActualizarStats();
                         Explorador personaje = (Explorador) matrizObjetos[xy[0]][xy[1]];
                         personaje.getSniper().setDaño(personaje.getSniper().getDaño()+damageExtra);
+                        jLabel1.setText("Soldado listo!");
                     }
                     break;
                 default:
                     xy = RetornaAsesino();
-                    Items loot = matrizObjetos[xy[0]][xy[1]].getLoot();
+                    loot = matrizObjetos[xy[0]][xy[1]].getLoot();
                     if(loot instanceof Botiquin){
                         Botiquin elemento = (Botiquin)loot;
                         matrizObjetos[xy[0]][xy[1]].setSalud(matrizObjetos[xy[0]][xy[1]].getSalud()+elemento.getCuracion());
+                        jLabel1.setText("Salud aumentada");
                     }
                     else if(loot instanceof Explosivo){
                         Explosivo elemento = (Explosivo)loot;
-                        int radioExplosivo = elemento.getRangoExplosion();
+                        int radioExplosivo = 1;
+                        int cont = elemento.getRangoExplosion();
+                        while(radioExplosivo<=cont){
+                            if(xy[0]-radioExplosivo>=0){
+                                if(esZombie(xy[0]-radioExplosivo, xy[1])){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]-radioExplosivo][xy[1]].setSalud(matrizObjetos[xy[0]-radioExplosivo][xy[1]].getSalud()- elemento.getDaño());
+                                    if(matrizObjetos[xy[0]-radioExplosivo][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]-radioExplosivo][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]-radioExplosivo][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if(xy[1]-radioExplosivo>=0){
+                                if(esZombie(xy[0], xy[1]-radioExplosivo)){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]][xy[1]-radioExplosivo].setSalud(matrizObjetos[xy[0]][xy[1]-radioExplosivo].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]][xy[1]-radioExplosivo].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]-radioExplosivo] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]-radioExplosivo].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if (xy[0]+radioExplosivo<=6){
+                                if(esZombie(xy[0]+radioExplosivo, xy[1])){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]+radioExplosivo][xy[1]].setSalud(matrizObjetos[xy[0]+radioExplosivo][xy[1]].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]+radioExplosivo][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]+radioExplosivo][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]+radioExplosivo][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }if(xy[1]+radioExplosivo<=4){
+                                if(esZombie(xy[0], xy[1]+radioExplosivo)){
+                                    int damage = (elemento.getDaño());
+                                    matrizObjetos[xy[0]][xy[1]+radioExplosivo].setSalud(matrizObjetos[xy[0]][xy[1]+radioExplosivo].getSalud()-damage);
+                                    if(matrizObjetos[xy[0]][xy[1]+radioExplosivo].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]+radioExplosivo] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]+radioExplosivo].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                    }
+                                }
+                            }
+                         radioExplosivo++;
+                        } jLabel1.setText("Explosivo desplegado");
                     }
                     else{
                         Potenciador elemento = (Potenciador)loot;
@@ -1094,12 +1294,13 @@ public class VentanaJuego extends javax.swing.JFrame {
                         ActualizarStats();
                         Asesino personaje = (Asesino) matrizObjetos[xy[0]][xy[1]];
                         personaje.getArco().setDaño(personaje.getArco().getDaño()+damageExtra);
+                        jLabel1.setText("Soldado listo!");
                     }
                     break;
                     
             }
         }
-    }//GEN-LAST:event_jLabelItemMouseClicked
+    }//GEN-LAST:event_ItemMouseClicked
 
     //Metodos
     public int[] RetornaAsesino(){
@@ -1167,16 +1368,40 @@ public class VentanaJuego extends javax.swing.JFrame {
                 ActualizarMatriz();
             }
         }
+        jRadioButton1.setEnabled(false);
+        jRadioButton2.setEnabled(false);
+        jRadioButton3.setEnabled(false);
+        BotonAvanzar.setEnabled(false);
+        BotonDerecha.setEnabled(false);
+        BotonIzquierda.setEnabled(false);
+        BotonRetroceder.setEnabled(false);
+        HabilidadEspecial.setEnabled(false);
+        Disparar.setEnabled(false);
+        Item.setEnabled(false);
+        jLabel1.setText("");
     }
     
     public void TerminarTableroHeroe(){
         if(turnos == 12 ){
-            for(int i=0;i<7;i++){
-                for(int j=0;j<5;j++){
-                    matrizObjetos[i][j] = new Casilla (false, false, false, 0, 0, 0, 0, 0, 0,null);
-                    matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/HeroeGane.jpg")));
-                    ActualizarMatriz();
+            if(ZombiesMuertos()){
+               for(int i=0;i<7;i++){
+                    for(int j=0;j<5;j++){
+                        matrizObjetos[i][j] = new Casilla (false, false, false, 0, 0, 0, 0, 0, 0,null);
+                        matrizEtiquetas[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/HeroeGane.jpg")));
+                        ActualizarMatriz();
+                    }
                 }
+            jRadioButton1.setEnabled(false);
+            jRadioButton2.setEnabled(false);
+            jRadioButton3.setEnabled(false);
+            BotonAvanzar.setEnabled(false);
+            BotonDerecha.setEnabled(false);
+            BotonIzquierda.setEnabled(false);
+            BotonRetroceder.setEnabled(false);
+            HabilidadEspecial.setEnabled(false);
+            Disparar.setEnabled(false);
+            Item.setEnabled(false);
+            jLabel1.setText("");
             }
         }
     }
@@ -1602,15 +1827,19 @@ public class VentanaJuego extends javax.swing.JFrame {
         if(i-1>=0){
             if((matrizObjetos[i-1][j] instanceof Asesino) || (matrizObjetos[i-1][j] instanceof Blindado) || (matrizObjetos[i-1][j] instanceof Explorador)){
                 matrizObjetos[i-1][j].setSalud(matrizObjetos[i-1][j].getSalud()-matrizObjetos[i][j].getAtaque());
+                jLabel1.setText("Los zombies atacan");
                 if(matrizObjetos[i-1][j].getSalud()<=0){
                     if(matrizObjetos[i-1][j] instanceof Blindado){
                         jRadioButton1.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }
                     else if(matrizObjetos[i-1][j] instanceof Explorador){
                         jRadioButton2.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }
                     else if(matrizObjetos[i-1][j] instanceof Asesino){
                         jRadioButton3.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }else{
                         //ES UN ZOMBI, CASILLA U OBSTACULO
                     }
@@ -1626,15 +1855,19 @@ public class VentanaJuego extends javax.swing.JFrame {
         if(i+1<=6){
             if((matrizObjetos[i+1][j] instanceof Asesino) || (matrizObjetos[i+1][j] instanceof Blindado) || (matrizObjetos[i+1][j] instanceof Explorador)){
                 matrizObjetos[i+1][j].setSalud(matrizObjetos[i+1][j].getSalud()-matrizObjetos[i][j].getAtaque());
+                jLabel1.setText("Los zombies atacan");
                 if(matrizObjetos[i+1][j].getSalud()<=0){
                     if(matrizObjetos[i-1][j] instanceof Blindado){
                         jRadioButton1.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }
                     else if(matrizObjetos[i-1][j] instanceof Explorador){
                         jRadioButton2.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }
                     else if(matrizObjetos[i-1][j] instanceof Asesino){
                         jRadioButton3.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }else{
                         //ES UN ZOMBI, CASILLA U OBSTACULO
                     }
@@ -1650,15 +1883,19 @@ public class VentanaJuego extends javax.swing.JFrame {
         if(j+1<=4){
             if((matrizObjetos[i][j+1] instanceof Asesino) || (matrizObjetos[i][j+1] instanceof Blindado) || (matrizObjetos[i][j+1] instanceof Explorador)){
                 matrizObjetos[i][j+1].setSalud(matrizObjetos[i][j+1].getSalud()-matrizObjetos[i][j].getAtaque());
+                jLabel1.setText("Los zombies atacan");
                 if(matrizObjetos[i][j+1].getSalud()<=0){
                     if(matrizObjetos[i-1][j] instanceof Blindado){
                         jRadioButton1.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }
                     else if(matrizObjetos[i-1][j] instanceof Explorador){
                         jRadioButton2.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }
                     else if(matrizObjetos[i-1][j] instanceof Asesino){
                         jRadioButton3.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }else{
                         //ES UN ZOMBI, CASILLA U OBSTACULO
                     }
@@ -1674,15 +1911,19 @@ public class VentanaJuego extends javax.swing.JFrame {
         if(j-1>=0){
           if((matrizObjetos[i][j-1] instanceof Asesino) || (matrizObjetos[i][j-1] instanceof Blindado) || (matrizObjetos[i][j-1] instanceof Explorador)){
               matrizObjetos[i][j-1].setSalud(matrizObjetos[i][j-1].getSalud()-matrizObjetos[i][j].getAtaque());
+              jLabel1.setText("Los zombies atacan");
               if(matrizObjetos[i][j-1].getSalud()<=0){
                   if(matrizObjetos[i-1][j] instanceof Blindado){
                         jRadioButton1.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }
                     else if(matrizObjetos[i-1][j] instanceof Explorador){
                         jRadioButton2.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }
                     else if(matrizObjetos[i-1][j] instanceof Asesino){
                         jRadioButton3.setEnabled(false);
+                        JOptionPane.showMessageDialog(null, "Soldado caido a reagruparnos");
                     }else{
                         //ES UN ZOMBI, CASILLA U OBSTACULO
                     }
@@ -1820,13 +2061,13 @@ public class VentanaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel BotonRetroceder;
     private javax.swing.JLabel Disparar;
     private javax.swing.JLabel HabilidadEspecial;
+    private javax.swing.JLabel Item;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBotonSalir;
-    private javax.swing.JLabel jLabelItem;
     private javax.swing.JLabel jLabelMensaje1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
