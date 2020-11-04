@@ -18,6 +18,5 @@ public class Chubby extends Personaje{
 
     public void setMutacion(int mutacion) {
         this.mutacion = mutacion;
-    }
-    
+    }  
 }

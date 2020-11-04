@@ -85,6 +85,5 @@ public class Personaje {
 
     public void setLoot(Items loot) {
         this.loot = loot;
-    }
-    
+    }   
 }

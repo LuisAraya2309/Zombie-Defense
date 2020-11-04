@@ -1,9 +1,6 @@
 
 package zombiedefense;
-
-
 public class Explosivo extends Items{
-
 
     //Atributos
     

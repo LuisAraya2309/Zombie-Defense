@@ -284,7 +284,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                 int i = (int) Math.floor(Math.random()*(6-4+1)+4);
                 int j = (int) Math.floor(Math.random()*(4-0+1)+0);
                 int tipo = (int) Math.floor(Math.random()*(3-1+1)+1);
-                System.out.println("X: "+i+" Y: "+j+" Tipo: "+tipo);
                 boolean spawnInvalido = (esPersonaje(i,j))||(esZombie(i,j))||(esObstaculo(i,j)); 
                 if(!spawnInvalido){
                     switch (tipo) {
@@ -297,7 +296,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     default: 
                         matrizObjetos[i][j] = new Lakelurk(1,1500,1500,0,2,0,null);
                         break;
-                }
+                    }
                 } 
                 cont--;
             }
@@ -486,61 +485,65 @@ public class VentanaJuego extends javax.swing.JFrame {
         else{
             switch (eleccionP) {
                 case 1:
-                    int[] xyB = RetornaBlindado();
-                    if(PoderAvanzarAtras(xyB[0],xyB[1])){
-                        if(matrizObjetos[xyB[0]-1][xyB[1]].getLoot()!=null){
-                            matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]-1][xyB[1]].getLoot());
+                    if(EncontrarBlindado()){
+                        int[] xyB = RetornaBlindado();
+                        if(PoderAvanzarAtras(xyB[0],xyB[1])){
+                            if(matrizObjetos[xyB[0]-1][xyB[1]].getLoot()!=null){
+                                matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]-1][xyB[1]].getLoot());
+                            }
+                            matrizObjetos[xyB[0]-1][xyB[1]] = matrizObjetos[xyB[0]][xyB[1]];
+                            matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Revenant avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyB[0]-1][xyB[1]] = matrizObjetos[xyB[0]][xyB[1]];
-                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Revenant avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
+                    }           
                 case 2:
-                    int[] xyE = RetornaExplorador();
-                    if(PoderAvanzarAtras(xyE[0],xyE[1])){
-                        if(matrizObjetos[xyE[0]-1][xyE[1]].getLoot()!=null){
-                            matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]-1][xyE[1]].getLoot());
+                    if(EncontrarExplorador()){
+                      int[] xyE = RetornaExplorador();
+                        if(PoderAvanzarAtras(xyE[0],xyE[1])){
+                            if(matrizObjetos[xyE[0]-1][xyE[1]].getLoot()!=null){
+                                matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]-1][xyE[1]].getLoot());
+                            }
+                            matrizObjetos[xyE[0]-1][xyE[1]] = matrizObjetos[xyE[0]][xyE[1]];
+                            matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Scout avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyE[0]-1][xyE[1]] = matrizObjetos[xyE[0]][xyE[1]];
-                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Scout avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }  
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
                 case 3:
-                    int[] xyA = RetornaAsesino();
-                    if(PoderAvanzarAtras(xyA[0],xyA[1])){
-                        if(matrizObjetos[xyA[0]-1][xyA[1]].getLoot()!=null){
-                            matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]-1][xyA[1]].getLoot());
+                    if(EncontrarAsesino()){
+                        int[] xyA = RetornaAsesino();
+                        if(PoderAvanzarAtras(xyA[0],xyA[1])){
+                            if(matrizObjetos[xyA[0]-1][xyA[1]].getLoot()!=null){
+                                matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]-1][xyA[1]].getLoot());
+                            }
+                            matrizObjetos[xyA[0]-1][xyA[1]] = matrizObjetos[xyA[0]][xyA[1]];
+                            matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Dheylo avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyA[0]-1][xyA[1]] = matrizObjetos[xyA[0]][xyA[1]];
-                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Dheylo avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }     
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        } 
+                    }   
             }
             ActualizarMatriz();
         }
@@ -553,62 +556,65 @@ public class VentanaJuego extends javax.swing.JFrame {
         else{
             switch (eleccionP) {
                 case 1:
-                    int[] xyB = RetornaBlindado();
-                    if(PoderAvanzarDerecha(xyB[0],xyB[1])){
-                        if(matrizObjetos[xyB[0]][xyB[1]+1].getLoot()!=null){
-                            matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]][xyB[1]+1].getLoot());
+                    if(EncontrarBlindado()){
+                        int[] xyB = RetornaBlindado();
+                        if(PoderAvanzarDerecha(xyB[0],xyB[1])){
+                            if(matrizObjetos[xyB[0]][xyB[1]+1].getLoot()!=null){
+                                matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]][xyB[1]+1].getLoot());
+                            }
+                            matrizObjetos[xyB[0]][xyB[1]+1] = matrizObjetos[xyB[0]][xyB[1]];
+                            matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Revenant avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyB[0]][xyB[1]+1] = matrizObjetos[xyB[0]][xyB[1]];
-                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Revenant avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
                 case 2:
-                    int[] xyE = RetornaExplorador();
-                    if(PoderAvanzarDerecha(xyE[0],xyE[1])){
-                        if(matrizObjetos[xyE[0]][xyE[1]+1].getLoot()!=null){
-                            matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]][xyE[1]+1].getLoot());
+                    if(EncontrarExplorador()){
+                        int[] xyE = RetornaExplorador();
+                        if(PoderAvanzarDerecha(xyE[0],xyE[1])){
+                            if(matrizObjetos[xyE[0]][xyE[1]+1].getLoot()!=null){
+                                matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]][xyE[1]+1].getLoot());
+                            }
+                            matrizObjetos[xyE[0]][xyE[1]+1] = matrizObjetos[xyE[0]][xyE[1]];
+                            matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Scout avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyE[0]][xyE[1]+1] = matrizObjetos[xyE[0]][xyE[1]];
-                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Scout avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
+                    }    
                 case 3:
-                    int[] xyA = RetornaAsesino();
-                    if(PoderAvanzarDerecha(xyA[0],xyA[1])){
-                        if(matrizObjetos[xyA[0]][xyA[1]+1].getLoot()!=null){
-                            matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]][xyA[1]+1].getLoot());
+                    if(EncontrarAsesino()){
+                        int[] xyA = RetornaAsesino();
+                        if(PoderAvanzarDerecha(xyA[0],xyA[1])){
+                            if(matrizObjetos[xyA[0]][xyA[1]+1].getLoot()!=null){
+                                matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]][xyA[1]+1].getLoot());
+                            }
+                            matrizObjetos[xyA[0]][xyA[1]+1] = matrizObjetos[xyA[0]][xyA[1]];
+                            matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Dheylo avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyA[0]][xyA[1]+1] = matrizObjetos[xyA[0]][xyA[1]];
-                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Dheylo avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
+                    } 
             }
             ActualizarMatriz();
         }
@@ -621,62 +627,65 @@ public class VentanaJuego extends javax.swing.JFrame {
         else{
             switch (eleccionP) {
                 case 1:
-                    int[] xyB = RetornaBlindado();
-                    if(PoderAvanzar(xyB[0],xyB[1])){
-                        if(matrizObjetos[xyB[0]+1][xyB[1]].getLoot()!=null){
-                            matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]+1][xyB[1]].getLoot());
+                    if(EncontrarBlindado()){
+                        int[] xyB = RetornaBlindado();
+                        if(PoderAvanzar(xyB[0],xyB[1])){
+                            if(matrizObjetos[xyB[0]+1][xyB[1]].getLoot()!=null){
+                                matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]+1][xyB[1]].getLoot());
+                            }
+                            matrizObjetos[xyB[0]+1][xyB[1]] = matrizObjetos[xyB[0]][xyB[1]];
+                            matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Revenant avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyB[0]+1][xyB[1]] = matrizObjetos[xyB[0]][xyB[1]];
-                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Revenant avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
+                    } 
                 case 2:
-                    int[] xyE = RetornaExplorador();
-                    if(PoderAvanzar(xyE[0],xyE[1])){
-                        if(matrizObjetos[xyE[0]+1][xyE[1]].getLoot()!=null){
-                            matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]+1][xyE[1]].getLoot());
+                    if(EncontrarExplorador()){
+                        int[] xyE = RetornaExplorador();
+                        if(PoderAvanzar(xyE[0],xyE[1])){
+                            if(matrizObjetos[xyE[0]+1][xyE[1]].getLoot()!=null){
+                                matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]+1][xyE[1]].getLoot());
+                            }
+                            matrizObjetos[xyE[0]+1][xyE[1]] = matrizObjetos[xyE[0]][xyE[1]];
+                            matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Scout avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyE[0]+1][xyE[1]] = matrizObjetos[xyE[0]][xyE[1]];
-                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Scout avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
                 case 3:
-                    int[] xyA = RetornaAsesino();
-                    if(PoderAvanzar(xyA[0],xyA[1])){
-                        if(matrizObjetos[xyA[0]+1][xyA[1]].getLoot()!=null){
-                            matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]+1][xyA[1]].getLoot());
+                    if(EncontrarAsesino()){
+                        int[] xyA = RetornaAsesino();
+                        if(PoderAvanzar(xyA[0],xyA[1])){
+                            if(matrizObjetos[xyA[0]+1][xyA[1]].getLoot()!=null){
+                                matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]+1][xyA[1]].getLoot());
+                            }
+                            matrizObjetos[xyA[0]+1][xyA[1]] = matrizObjetos[xyA[0]][xyA[1]];
+                            matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Dheylo avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyA[0]+1][xyA[1]] = matrizObjetos[xyA[0]][xyA[1]];
-                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Dheylo avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
+                    }    
             }
             ActualizarMatriz();
         }
@@ -689,62 +698,65 @@ public class VentanaJuego extends javax.swing.JFrame {
         else{
             switch (eleccionP) {
                 case 1:
-                    int[] xyB = RetornaBlindado();
-                    if(PoderAvanzarIzquierda(xyB[0],xyB[1])){
-                        if(matrizObjetos[xyB[0]][xyB[1]-1].getLoot()!=null){
-                            matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]][xyB[1]-1].getLoot());
+                    if(EncontrarBlindado()){
+                        int[] xyB = RetornaBlindado();
+                        if(PoderAvanzarIzquierda(xyB[0],xyB[1])){
+                            if(matrizObjetos[xyB[0]][xyB[1]-1].getLoot()!=null){
+                                matrizObjetos[xyB[0]][xyB[1]].setLoot(matrizObjetos[xyB[0]][xyB[1]-1].getLoot());
+                            }
+                            matrizObjetos[xyB[0]][xyB[1]-1] = matrizObjetos[xyB[0]][xyB[1]];
+                            matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Revenant avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyB[0]][xyB[1]-1] = matrizObjetos[xyB[0]][xyB[1]];
-                        matrizObjetos[xyB[0]][xyB[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyB[0]][xyB[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Revenant avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
                 case 2:
-                    int[] xyE = RetornaExplorador();
-                    if(PoderAvanzarIzquierda(xyE[0],xyE[1])){
-                        if(matrizObjetos[xyE[0]][xyE[1]-1].getLoot()!=null){
-                            matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]][xyE[1]-1].getLoot());
+                    if(EncontrarExplorador()){
+                        int[] xyE = RetornaExplorador();
+                        if(PoderAvanzarIzquierda(xyE[0],xyE[1])){
+                            if(matrizObjetos[xyE[0]][xyE[1]-1].getLoot()!=null){
+                                matrizObjetos[xyE[0]][xyE[1]].setLoot(matrizObjetos[xyE[0]][xyE[1]-1].getLoot());
+                            }
+                            matrizObjetos[xyE[0]][xyE[1]-1] = matrizObjetos[xyE[0]][xyE[1]];
+                            matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Scout avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyE[0]][xyE[1]-1] = matrizObjetos[xyE[0]][xyE[1]];
-                        matrizObjetos[xyE[0]][xyE[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyE[0]][xyE[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Scout avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        }
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
                 case 3:
-                    int[] xyA = RetornaAsesino();
-                    if(PoderAvanzarIzquierda(xyA[0],xyA[1])){
-                        if(matrizObjetos[xyA[0]][xyA[1]-1].getLoot()!=null){
-                            matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]][xyA[1]-1].getLoot());
+                    if(EncontrarAsesino()){
+                       int[] xyA = RetornaAsesino();
+                        if(PoderAvanzarIzquierda(xyA[0],xyA[1])){
+                            if(matrizObjetos[xyA[0]][xyA[1]-1].getLoot()!=null){
+                                matrizObjetos[xyA[0]][xyA[1]].setLoot(matrizObjetos[xyA[0]][xyA[1]-1].getLoot());
+                            }
+                            matrizObjetos[xyA[0]][xyA[1]-1] = matrizObjetos[xyA[0]][xyA[1]];
+                            matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
+                            matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
+                            jLabel1.setText("Dheylo avanza");
+                            movimientos++;
+                            ActualizarTurnos(movimientos);
+                            break;
                         }
-                        matrizObjetos[xyA[0]][xyA[1]-1] = matrizObjetos[xyA[0]][xyA[1]];
-                        matrizObjetos[xyA[0]][xyA[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
-                        matrizEtiquetas[xyA[0]][xyA[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
-                        jLabel1.setText("Dheylo avanza");
-                        movimientos++;
-                        ActualizarTurnos(movimientos);
-                        break;
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
-                        break;
-                    }
-                    
+                        else{
+                            JOptionPane.showMessageDialog(null, "Acción inválida. Estás tratando de dejar el campo de batalla.");
+                            break;
+                        } 
+                    }    
             }
             ActualizarMatriz();
         }
@@ -855,214 +867,221 @@ public class VentanaJuego extends javax.swing.JFrame {
             movimientos++;
             ActualizarTurnos(movimientos);
             int xy [];
+            int cont;
             switch (eleccionP) {
                 case 1:
-                    //Dispara Revenant
-                    xy = RetornaBlindado();      
-                    int cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
-                    while(cont!=0){
-                        if(xy[0]-cont>=0){
-                            if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
-                                Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
-                                matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
-                                jLabel1.setText("Revenant inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                    if(EncontrarExplorador()){
+                        //Dispara Revenant
+                        xy = RetornaBlindado();      
+                        cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
+                        while(cont!=0){
+                            if(xy[0]-cont>=0){
+                                if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
+                                    Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
+                                    matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
+                                    jLabel1.setText("Revenant inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
+                                }
+
+                            }
+                            if(xy[1]-cont>=0){
+                                if((matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Ghoul)){
+                                    Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
+                                    matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
+                                    jLabel1.setText("Revenant inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
-                            
-                        }
-                        if(xy[1]-cont>=0){
-                            if((matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Ghoul)){
-                                Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
-                                matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
-                                jLabel1.setText("Revenant inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                            if (xy[0]+cont<=6){
+                                if((matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
+                                    Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
+                                    matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
+                                    jLabel1.setText("Revenant inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        if (xy[0]+cont<=6){
-                            if((matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
-                                Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
-                                matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
-                                jLabel1.setText("Revenant inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                            if(xy[1]+cont<=4){
+                                if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Ghoul)){
+                                    Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
+                                    matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
+                                    jLabel1.setText("Revenant inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
+                            cont--;
                         }
-                        if(xy[1]+cont<=4){
-                            if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Ghoul)){
-                                Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getShotgun().getDaño()*elemento.getShotgun().getPrecision()/100+elemento.getShotgun().getPenetracion());
-                                matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
-                                jLabel1.setText("Revenant inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
-                                }
-                            }
-                        }
-                        cont--;
+                        break;
                     }
-                    break;
                 case 2:
-                    xy = RetornaExplorador();
-                    cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
-                    while(cont!=0){
-                        if(xy[0]-cont>=0){
-                            if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
-                                Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
-                                matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
-                                jLabel1.setText("Scout inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
-                                }
-                            }   
-                        }
-                        if(xy[1]-cont>=0){
-                            if((matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Ghoul)){
-                                Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
-                                matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
-                                jLabel1.setText("Scout inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                    if(EncontrarExplorador()){
+                        xy = RetornaExplorador();
+                        cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
+                        while(cont!=0){
+                            if(xy[0]-cont>=0){
+                                if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
+                                    Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
+                                    matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
+                                    jLabel1.setText("Scout inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
+                                }   
+                            }
+                            if(xy[1]-cont>=0){
+                                if((matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Ghoul)){
+                                    Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
+                                    matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
+                                    jLabel1.setText("Scout inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        if (xy[0]+cont<=6){
-                            if((matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
-                                Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
-                                matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
-                                jLabel1.setText("Scout inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                            if (xy[0]+cont<=6){
+                                if((matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
+                                    Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
+                                    matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
+                                    jLabel1.setText("Scout inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        if(xy[1]+cont<=4){
-                            System.out.println("Pase:" + cont);
-                            if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Ghoul)){
-                                Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
-                                matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
-                                jLabel1.setText("Scout inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                            if(xy[1]+cont<=4){
+                                System.out.println("Pase:" + cont);
+                                if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Ghoul)){
+                                    Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
+                                    matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
+                                    jLabel1.setText("Scout inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
+                            cont--;
                         }
-                        cont--;
+                        break;
                     }
-                    break;
                 case 3:
-                    xy = RetornaAsesino();
-                    //Dispara Dheylo
-                    cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
-                    while(cont!=0){
-                        if(xy[0]-cont>=0){
-                            if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
-                                Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
-                                matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
-                                jLabel1.setText("Dheylo inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
-                                }
-                            }   
-                        }
-                        if(xy[1]-cont>=0){
-                            if((matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Ghoul)){
-                                Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
-                                matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
-                                jLabel1.setText("Dheylo inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                    if(EncontrarAsesino()){
+                        xy = RetornaAsesino();
+                        //Dispara Dheylo
+                        cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
+                        while(cont!=0){
+                            if(xy[0]-cont>=0){
+                                if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
+                                    Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
+                                    matrizObjetos[xy[0]-cont][xy[1]].setSalud(matrizObjetos[xy[0]-cont][xy[1]].getSalud()-damage);
+                                    jLabel1.setText("Dheylo inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]-cont][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]-cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]-cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
+                                }   
+                            }
+                            if(xy[1]-cont>=0){
+                                if((matrizObjetos[xy[0]][xy[1]-cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]-cont] instanceof Ghoul)){
+                                    Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
+                                    matrizObjetos[xy[0]][xy[1]-cont].setSalud(matrizObjetos[xy[0]][xy[1]-cont].getSalud()-damage);
+                                    jLabel1.setText("Dheylo inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]][xy[1]-cont].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]-cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]-cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        if (xy[0]+cont<=6){
-                            if((matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
-                                Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
-                                matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
-                                jLabel1.setText("Dheylo inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                            if (xy[0]+cont<=6){
+                                if((matrizObjetos[xy[0]+cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]+cont][xy[1]] instanceof Ghoul)){
+                                    Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
+                                    matrizObjetos[xy[0]+cont][xy[1]].setSalud(matrizObjetos[xy[0]+cont][xy[1]].getSalud()-damage);
+                                    jLabel1.setText("Dheylo inflingió "+damage+" de daño");
+                                    if(matrizObjetos[xy[0]+cont][xy[1]].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]+cont][xy[1]] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]+cont][xy[1]].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        if(xy[1]+cont<=4){
-                            System.out.println("Pase:" + cont);
-                            if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Ghoul)){
-                                Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
-                                int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
-                                matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
-                                jLabel1.setText("Dheylo inflingió "+damage+" de daño");
-                                if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
-                                    Items item = CrearItem();
-                                    matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
-                                    matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
-                                    ActualizarMatriz();
-                                    break;
+                            if(xy[1]+cont<=4){
+                                System.out.println("Pase:" + cont);
+                                if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Ghoul)){
+                                    Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
+                                    int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
+                                    matrizObjetos[xy[0]][xy[1]+cont].setSalud(matrizObjetos[xy[0]][xy[1]+cont].getSalud()-damage);
+                                    jLabel1.setText("Dheylo inflingió " + damage + " de daño");
+                                    if(matrizObjetos[xy[0]][xy[1]+cont].getSalud()<=0){
+                                        Items item = CrearItem();
+                                        matrizObjetos[xy[0]][xy[1]+cont] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,item);
+                                        matrizEtiquetas[xy[0]][xy[1]+cont].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Loot.jpg")));
+                                        ActualizarMatriz();
+                                        break;
+                                    }
                                 }
                             }
+                            cont--;
                         }
-                        cont--;
-                    }
-                    break;
-            }ActualizarMatriz();
+                        break;
+                        }
+                    }ActualizarMatriz();
         }
     }//GEN-LAST:event_DispararMouseClicked
     private int TipoLoot(int x,int y){
@@ -1317,6 +1336,39 @@ public class VentanaJuego extends javax.swing.JFrame {
         int[] posicion = new int[1];
         posicion[0] = 10;
         return posicion;
+    }
+    
+    public boolean EncontrarAsesino(){
+        for(int i = 0;i<7;i++){
+            for(int j = 0;j<5;j++){
+                if(matrizObjetos[i][j] instanceof Asesino){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean EncontrarBlindado(){
+        for(int i = 0;i<7;i++){
+            for(int j = 0;j<5;j++){
+                if(matrizObjetos[i][j] instanceof Blindado){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean EncontrarExplorador(){
+        for(int i = 0;i<7;i++){
+            for(int j = 0;j<5;j++){
+                if(matrizObjetos[i][j] instanceof Explorador){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     public int[] RetornaBlindado(){

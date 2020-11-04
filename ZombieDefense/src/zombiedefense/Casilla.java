@@ -1,7 +1,5 @@
 
 package zombiedefense;
-
-
 public class Casilla extends Personaje{
 
     //Atributos

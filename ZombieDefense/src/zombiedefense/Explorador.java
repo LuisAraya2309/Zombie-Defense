@@ -20,6 +20,4 @@ public class Explorador extends Personaje {
     public void setSniper(Arma sniper) {
         this.sniper = sniper;
     }
-    
-    
-    }
+}

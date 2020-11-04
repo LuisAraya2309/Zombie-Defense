@@ -18,8 +18,5 @@ public class Asesino extends Personaje {
 
     public void setArco(Arma arco) {
         this.arco = arco;
-    }
-
-  
-    
+    } 
 }

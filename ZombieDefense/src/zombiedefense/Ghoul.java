@@ -19,6 +19,5 @@ public class Ghoul extends Personaje{
  
     public void setPudricion(int pudricion) {
         this.pudricion = pudricion;
-    }
-    
+    } 
 }

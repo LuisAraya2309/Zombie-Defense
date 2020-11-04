@@ -40,7 +40,5 @@ public class Blindado extends Personaje {
 
     public void setShotgun(Arma shotgun) {
         this.shotgun = shotgun;
-    }
-
-    
+    }  
 }
