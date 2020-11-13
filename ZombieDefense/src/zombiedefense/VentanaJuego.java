@@ -259,7 +259,6 @@ public class VentanaJuego extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabelBotonSalirMouseClicked
 
-    
     //Modifican la eleccion de cual personaje se va a utilizar.
     private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
         // TODO add your handling code here:
@@ -873,8 +872,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                     if(EncontrarExplorador()){
                         //Dispara Revenant
                         xy = RetornaBlindado();      
-                        cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
-                        while(cont!=0){
+                        cont = 0;
+                        while(cont<=matrizObjetos[xy[0]][xy[1]].getRangoDeVision()){
                             if(xy[0]-cont>=0){
                                 if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
                                     Blindado elemento = (Blindado)matrizObjetos[xy[0]][xy[1]];
@@ -936,15 +935,15 @@ public class VentanaJuego extends javax.swing.JFrame {
                                     }
                                 }
                             }
-                            cont--;
+                            cont++;
                         }
                         break;
                     }
                 case 2:
                     if(EncontrarExplorador()){
                         xy = RetornaExplorador();
-                        cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
-                        while(cont!=0){
+                        cont = 0 ;
+                        while(cont<= matrizObjetos[xy[0]][xy[1]].getRangoDeVision()){
                             if(xy[0]-cont>=0){
                                 if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
                                     Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
@@ -991,7 +990,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 }
                             }
                             if(xy[1]+cont<=4){
-                                System.out.println("Pase:" + cont);
                                 if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Ghoul)){
                                     Explorador elemento = (Explorador)matrizObjetos[xy[0]][xy[1]];
                                     int damage = (elemento.getSniper().getDaño()*elemento.getSniper().getPrecision()/100+elemento.getSniper().getPenetracion());
@@ -1006,7 +1004,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                     }
                                 }
                             }
-                            cont--;
+                            cont++;
                         }
                         break;
                     }
@@ -1014,8 +1012,8 @@ public class VentanaJuego extends javax.swing.JFrame {
                     if(EncontrarAsesino()){
                         xy = RetornaAsesino();
                         //Dispara Dheylo
-                        cont = matrizObjetos[xy[0]][xy[1]].getRangoDeVision();
-                        while(cont!=0){
+                        cont = 0;
+                        while(cont<= matrizObjetos[xy[0]][xy[1]].getRangoDeVision()){
                             if(xy[0]-cont>=0){
                                 if((matrizObjetos[xy[0]-cont][xy[1]] instanceof Chubby) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Lakelurk) || (matrizObjetos[xy[0]-cont][xy[1]] instanceof Ghoul)){
                                     Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
@@ -1062,7 +1060,6 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 }
                             }
                             if(xy[1]+cont<=4){
-                                System.out.println("Pase:" + cont);
                                 if((matrizObjetos[xy[0]][xy[1]+cont] instanceof Chubby) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Lakelurk) || (matrizObjetos[xy[0]][xy[1]+cont] instanceof Ghoul)){
                                     Asesino elemento = (Asesino)matrizObjetos[xy[0]][xy[1]];
                                     int damage = (elemento.getArco().getDaño()*elemento.getArco().getPrecision()/100+elemento.getArco().getPenetracion());
@@ -1077,7 +1074,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                     }
                                 }
                             }
-                            cont--;
+                            cont++;
                         }
                         break;
                         }
@@ -1457,7 +1454,7 @@ public class VentanaJuego extends javax.swing.JFrame {
             }
         }
     }
-    
+     
     public boolean DeterminarCercania(int x, int y){
         int cont = 1;
         while (cont<=2){
@@ -1653,6 +1650,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     Casilla elemento = (Casilla) matrizObjetos[x-1][y];
                     if(!elemento.isObstaculizado()){
                         if ((matrizObjetos[x-cont][y] instanceof Asesino) ||(matrizObjetos[x-cont][y] instanceof Blindado) || (matrizObjetos[x-cont][y] instanceof Explorador)){
+                            jLabel1.setText("Soldado cerca");
                             matrizObjetos[x-1][y] = matrizObjetos[x][y];
                             matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                             matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -1667,6 +1665,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     Casilla elemento = (Casilla) matrizObjetos[x-1][y];
                     if(!elemento.isObstaculizado()){
                         if ((matrizObjetos[x+cont][y] instanceof Asesino) ||(matrizObjetos[x+cont][y] instanceof Blindado) || (matrizObjetos[x+cont][y] instanceof Explorador)){
+                            jLabel1.setText("Soldado cerca");
                             matrizObjetos[x+1][y] = matrizObjetos[x][y];
                             matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                             matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -1681,6 +1680,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     Casilla elemento = (Casilla) matrizObjetos[x][y+1];
                     if(!elemento.isObstaculizado()){
                         if ((matrizObjetos[x][y+cont] instanceof Asesino) ||(matrizObjetos[x][y+cont] instanceof Blindado) || (matrizObjetos[x][y+cont] instanceof Explorador)){
+                            jLabel1.setText("Soldado cerca");
                             matrizObjetos[x][y+1] = matrizObjetos[x][y];
                             matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                             matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -1695,6 +1695,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                     Casilla elemento = (Casilla) matrizObjetos[x][y-1];
                     if(!elemento.isObstaculizado()){
                         if ((matrizObjetos[x][y-cont] instanceof Asesino) ||(matrizObjetos[x][y-cont] instanceof Blindado) || (matrizObjetos[x][y-cont] instanceof Explorador)){
+                            jLabel1.setText("Soldado cerca");
                             matrizObjetos[x][y-1] = matrizObjetos[x][y];
                             matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                             matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -1756,18 +1757,21 @@ public class VentanaJuego extends javax.swing.JFrame {
                         switch (personaje) {
                             case 1:
                                 if (matrizObjetos[x-cont][y] instanceof Asesino){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x-1][y] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 2:
                                 if (matrizObjetos[x-cont][y] instanceof Blindado){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x-1][y] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 3:
                                 if (matrizObjetos[x-cont][y] instanceof Explorador){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x-1][y] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -1787,18 +1791,21 @@ public class VentanaJuego extends javax.swing.JFrame {
                         switch (personaje) {
                             case 1:
                                 if (matrizObjetos[x+cont][y] instanceof Asesino){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x+1][y] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 2:
                                 if (matrizObjetos[x+cont][y] instanceof Blindado){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x+1][y] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 3:
                                 if (matrizObjetos[x+cont][y] instanceof Explorador){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x+1][y] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -1818,18 +1825,21 @@ public class VentanaJuego extends javax.swing.JFrame {
                        switch (personaje) {
                             case 1:
                                 if (matrizObjetos[x][y+cont] instanceof Asesino){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x][y+1] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 2:
                                 if (matrizObjetos[x][y+cont] instanceof Blindado){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x][y+1] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 3:
                                 if (matrizObjetos[x][y+cont] instanceof Explorador){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x][y+1] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
@@ -1849,18 +1859,21 @@ public class VentanaJuego extends javax.swing.JFrame {
                         switch (personaje) {
                             case 1:
                                 if (matrizObjetos[x][y-cont] instanceof Asesino){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x][y-1] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 2:
                                 if (matrizObjetos[x][y-cont] instanceof Blindado){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x][y-1] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
                                 }   break;
                             case 3:
                                 if (matrizObjetos[x][y-cont] instanceof Explorador){
+                                    jLabel1.setText("Ruido cerca");
                                     matrizObjetos[x][y-1] = matrizObjetos[x][y];
                                     matrizObjetos[x][y] = new Casilla(false, false, false, 0, 0, 0, 0, 0, 0,null);
                                     matrizEtiquetas[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasillaDefault.jpg")));
